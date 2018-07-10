@@ -1,0 +1,13 @@
+export XDOTDIR=~/.config/X11
+
+export EDITOR=nvim
+export TERMINAL=urxvt
+export WEB_BROWSER=luakit
+
+alias diff='diff --color=auto'
+alias grep='grep --color=auto'
+alias ls='ls --color=auto'
+
+if [ -z "$DISPLAY" ] && [ -n "$XDG_VTNR" ] && [ "$XDG_VTNR" -lt 3 ]; then
+	sway
+fi
