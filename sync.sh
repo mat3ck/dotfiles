@@ -2,11 +2,15 @@
 
 # zsh
 cp -fv ./zshenv ~/.zshenv
-cp -fv ./config/zsh/zprofile ~/.config/zsh/.zprofile
-cp -fv ./config/zsh/zshrc ~/.config/zsh/.zshrc
+cp -frv ./config/zsh ~/.config
+mv -fv ./config/zsh/zprofile ~/.config/zsh/.zprofile
+mv -fv ./config/zsh/zshrc ~/.config/zsh/.zshrc
+
+# sway
+cp -frv ./config/sway ~/.config
 
 # termite
 cp -frv ./config/termite ~/.config
 
-# sway
-cp -frv ./config/sway ~/.config
+# ranger
+cp -frv ./config/ranger ~/.config
