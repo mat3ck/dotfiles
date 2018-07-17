@@ -6,12 +6,12 @@ set $config_dir ~/.config/sway/config.d
 include $config_dir/variables
 ## Keybindings
 include $config_dir/keybindings
+## Outputs
+## Inputs
+## Theme
+include $config_dir/$theme/theme
 
 ### Output configuration
-#
-# Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
-#
 # Example configuration:
 #
 #   output HDMI-A-1 resolution 1920x1080 position 1920,0
