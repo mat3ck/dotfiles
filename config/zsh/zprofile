@@ -1,6 +1,6 @@
 export EDITOR=nvim
-export TERMINAL=urxvt
-export WEB_BROWSER=luakit
+export TERMINAL=termite
+export WEB_BROWSER=firefox
 
 alias diff='diff --color=auto'
 alias grep='grep --color=auto'
