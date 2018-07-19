@@ -1,5 +1,3 @@
-export XDOTDIR=~/.config/X11
-
 export EDITOR=nvim
 export TERMINAL=urxvt
 export WEB_BROWSER=luakit
