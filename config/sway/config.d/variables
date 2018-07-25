@@ -18,5 +18,5 @@ set $menu rofi -show run
 ## Theme
 # Theme name
 set $theme swing
-# Backgounrd
+# Background
 set $background $config_dir/$theme/background.jpg
