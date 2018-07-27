@@ -40,9 +40,14 @@ default_border pixel 2
 gaps 4
 # Colors of clients
 client.background 	$color_bgd2
-client.focused 		$color_bor1 $color_bor1 $color_tex1 $color_ind1 $color_bor1
-client.focused_inactive $color_bor2 $color_bor2 $color_tex1 $color_ind2 $color_bor2
-client.unfocused 	$color_bor2 $color_bor2 $color_tex1 $color_ind2 $color_bor2
-client.urgent 		$color_bor1 $color_bor1 $color_tex1 $color_ind2 $color_bor1
-client.placeholder 	$color_bor2 $color_bor2 $color_tex1 $color_ind2 $color_bor2
+client.focused 		$color_bor1 $color_bor1 $color_txt1 $color_ind1 $color_bor1
+client.focused_inactive $color_bor2 $color_bor2 $color_txt1 $color_ind2 $color_bor2
+client.unfocused 	$color_bor2 $color_bor2 $color_txt1 $color_ind2 $color_bor2
+client.urgent 		$color_bor1 $color_bor1 $color_txt1 $color_ind2 $color_bor1
+client.placeholder 	$color_bor2 $color_bor2 $color_txt1 $color_ind2 $color_bor2
 
+#
+#
+#
+
+include $config_dir/$theme/swaybar
