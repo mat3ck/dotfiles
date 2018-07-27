@@ -1,0 +1,21 @@
+### Swaybar
+
+#
+# Status bar
+#
+
+bar {
+	swaybar_command swaybar
+	position top
+	font DejaVu Sans Mono 11.5
+	
+	separator_symbol |
+	
+	colors {
+		background $color_bgd2
+		statusline $color_txt1
+		separator $color_txt1
+		focused_workspace $color_bor2 $color_txt1 $color_bgd2
+		inactive_workspace $color_bor2 $color_bgd2 $color_txt1
+	}
+}

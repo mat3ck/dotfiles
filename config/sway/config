@@ -36,13 +36,4 @@ include $config_dir/$theme/theme
 # Status Bar:
 #
 # Read `man 5 sway-bar` for more information about this section.
-bar {
-    position top
-    colors {
-        statusline #ffffff
-        background #39343f
-        inactive_workspace #32323200 #32323200 #5c5c5c
-    }
-}
-
 include /etc/sway/config.d/*
