@@ -3,7 +3,7 @@
 #audible_bell = false
 #clickable_url = true
 #dynamic_title = true
-font = DejaVu Sans Mono 11
+font = DejaVu Sans Mono 11.5
 #fullscreen = true
 #geometry = 640x480
 #icon_name = terminal
@@ -44,9 +44,9 @@ scrollback_lines = 10000
 #cursor = #dcdccc
 #cursor_foreground = #dcdccc
 
-foreground = #edf2e6
+foreground = #f2f1da
 #foreground_bold = #ffffff
-background = #39343f
+background = #2e2a33
 
 # 20% background transparency (requires a compositor)
 #background = rgba(63, 63, 63, 0.8)
