@@ -9,6 +9,9 @@ mv -fv ~/.config/zsh/zshrc ~/.config/zsh/.zshrc
 # sway
 cp -frv ./config/sway ~/.config
 
+# i3blocks
+cp -frv ./config/i3blocks ~/.config
+
 # termite
 cp -frv ./config/termite ~/.config
 
