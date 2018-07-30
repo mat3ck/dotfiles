@@ -1,6 +1,11 @@
+### zprofile
+
 export EDITOR=nvim
+export VISUAL=nvim
 export TERMINAL=termite
 export BROWSER=firefox
+
+export RANGER_LOAD_DEFAULTS_RC=FALSE
 
 alias diff='diff --color=auto'
 alias grep='grep --color=auto'

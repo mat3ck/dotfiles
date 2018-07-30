@@ -1,3 +1,5 @@
+### zshrc
+
 # Lines configured by zsh-newuser-install
 HISTFILE=$ZDOTDIR/.histfile
 HISTSIZE=1000
