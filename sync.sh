@@ -17,3 +17,6 @@ cp -frv ./config/termite ~/.config
 
 # ranger
 cp -frv ./config/ranger ~/.config
+
+# rofi
+cp -frv ./config/rofi ~/.config
