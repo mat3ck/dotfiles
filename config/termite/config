@@ -61,11 +61,11 @@ color12 = #3660bf
 color5 = #a730bf
 color13 = #a730bf
 # Teal
-color6 = #4500bf
-color14 = #4500bf
+color6 = #bf5f30
+color14 = #bf5f30
 # White
-color7 = #f2f1da
-color15 = #f2f1da
+color7 = #e5e4ce
+color15 = #e5e4ce
 
 
 #highlight = #ff0000
