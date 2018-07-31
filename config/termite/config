@@ -39,7 +39,7 @@ foreground_bold = #fffff2
 # Background
 background = #2e2a33
 # Cursor
-cursor = #f2f1da
+cursor = #e5e4ce
 cursor_foreground = #2e2a33
 
 # Black
