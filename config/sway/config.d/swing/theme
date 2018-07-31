@@ -16,17 +16,17 @@ set $color_bgd1 #1a181d
 set $color_bgd2 #2e2a33
 
 # Text color
-set $color_txt1 #f2f1da
+set $color_txt1 #e5e4ce
 # Bold text color
 set $color_txt2 #fffff2
 
 # Focused border and titlebar color
-set $color_bor1 #f2f1da
+set $color_bor1 #e5e4ce
 # Unfocused border and titlebar color
 set $color_bor2 #504a59
 
 # Focused indicator and titlebar color
-set $color_ind1 #f2f1da
+set $color_ind1 #e5e4ce
 # Unfocused indicator and titlebar color
 set $color_ind2 #504a59
 
