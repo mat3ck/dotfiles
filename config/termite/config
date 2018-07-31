@@ -34,7 +34,7 @@ scroll_on_keystroke = true
 [colors]
 
 # Foreground
-foreground = #f2f1da
+foreground = #e5e4ce
 foreground_bold = #fffff2
 # Background
 background = #2e2a33
@@ -46,20 +46,20 @@ cursor_foreground = #2e2a33
 color0 = #2e2a33
 color8 = #504a59
 # Red
-color1 = #bf001f
-color9 = #bf001f
+color1 = #bf303c
+color9 = #bf303c
 # Green
-color2 = #00bf25
-color10 = #00bf25
+color2 = #7bbf30
+color10 = #7bbf30
 # Yellow
-color3 = #bfb600
-color11 = #bfb600
+color3 = #bfbf30
+color11 = #bfbf30
 # Blue
-color4 = #00b6bf
-color12 = #00b6bf
+color4 = #3060bf
+color12 = #3660bf
 # Purple
-color5 = #bf6600
-color13 = #bf6600
+color5 = #a730bf
+color13 = #a730bf
 # Teal
 color6 = #4500bf
 color14 = #4500bf
