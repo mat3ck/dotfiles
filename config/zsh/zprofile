@@ -1,16 +1,25 @@
 ### zprofile
 
+# global environment variables
+export LC_ALL="en_US.UTF-8"
+export DEFAULT_USER=mateck
 export EDITOR=nvim
 export VISUAL=nvim
 export TERMINAL=termite
 export BROWSER=firefox
 
+# antigen variables
+export ADOTDIR=~/.config/antigen
+
+# ranger variables
 export RANGER_LOAD_DEFAULTS_RC=FALSE
 
+# Aliases
 alias diff='diff --color=auto'
 alias grep='grep --color=auto'
 alias ls='ls --color=auto'
 
+# Launching wayland
 if [ -z "$DISPLAY" ] && [ -n "$XDG_VTNR" ] && [ "$XDG_VTNR" -lt 3 ]; then
 	sway
 fi

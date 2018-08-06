@@ -1,4 +1,4 @@
-# Just a little script to sync this folder with system dotfiles
+### Just a little script to sync this folder with system dotfiles
 
 # zsh
 cp -fv ./zshenv ~/.zshenv
@@ -20,3 +20,6 @@ cp -frv ./config/ranger ~/.config
 
 # rofi
 cp -frv ./config/rofi ~/.config
+
+# antigen
+cp -frv ./config/antigen ~/.config
