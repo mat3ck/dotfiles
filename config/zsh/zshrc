@@ -1,14 +1,17 @@
 ### zshrc
 
 # Antigen
-source ~/.config/antigen/antigen.zsh
+source $ADOTDIR/antigen.zsh
 
 antigen use oh-my-zsh
 antigen bundle git
 antigen bundle pip
+
 antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle zsh-users/zsh-autosuggestions
+
 antigen theme agnoster
+
 antigen apply
 
 # Lines configured by zsh-newuser-install
