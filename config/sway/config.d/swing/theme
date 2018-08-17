@@ -18,7 +18,7 @@ set $color_bgd2 #2e2a33
 # Text color
 set $color_txt1 #e5e4ce
 # Bold text color
-set $color_txt2 #fffff2
+set $color_txt2 #2e2a33
 
 # Focused border and titlebar color
 set $color_bor1 #e5e4ce
@@ -40,7 +40,7 @@ default_border pixel 2
 gaps 4
 # Colors of clients
 client.background 	$color_bgd2
-client.focused 		$color_bor1 $color_bor1 $color_txt1 $color_ind1 $color_bor1
+client.focused 		$color_bor1 $color_bor1 $color_txt2 $color_ind1 $color_bor1
 client.focused_inactive $color_bor2 $color_bor2 $color_txt1 $color_ind2 $color_bor2
 client.unfocused 	$color_bor2 $color_bor2 $color_txt1 $color_ind2 $color_bor2
 client.urgent 		$color_bor1 $color_bor1 $color_txt1 $color_ind2 $color_bor1
