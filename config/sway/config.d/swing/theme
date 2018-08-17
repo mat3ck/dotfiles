@@ -25,9 +25,9 @@ set $color_bor1 #e5e4ce
 # Unfocused border and titlebar color
 set $color_bor2 #504a59
 
-# Focused indicator and titlebar color
+# Focused indicator
 set $color_ind1 #e5e4ce
-# Unfocused indicator and titlebar color
+# Unfocused indicator
 set $color_ind2 #504a59
 
 #
@@ -41,7 +41,7 @@ gaps 4
 # Colors of clients
 client.background 	$color_bgd2
 client.focused 		$color_bor1 $color_bor1 $color_txt2 $color_ind1 $color_bor1
-client.focused_inactive $color_bor2 $color_bor2 $color_txt1 $color_ind2 $color_bor2
+client.focused_inactive $color_bor1 $color_bor2 $color_txt1 $color_ind2 $color_bor2
 client.unfocused 	$color_bor2 $color_bor2 $color_txt1 $color_ind2 $color_bor2
 client.urgent 		$color_bor1 $color_bor1 $color_txt1 $color_ind2 $color_bor1
 client.placeholder 	$color_bor2 $color_bor2 $color_txt1 $color_ind2 $color_bor2
