@@ -12,6 +12,7 @@ Plug 'Townk/vim-autoclose'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 " Writting
 Plug 'reedes/vim-pencil'
+Plug 'plasticboy/vim-markdown'
 " VCS
 Plug 'mhinz/vim-signify'
 
@@ -56,13 +57,23 @@ highlight PmenuSel ctermbg=10 ctermfg=8
 highlight PmenuSbar ctermbg=10 ctermfg=8
 inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 
-" Vim-pencil
-let g:pencil#wrapModeDefault = 'hard'
-let g:pencil#textwidth = 80
+" Autoclose
+let g:AutoClosePreserveDotReg = 0
+
+" Pencil
 augroup pencil
 	autocmd!
 	autocmd FileType markdown,mkd,text call pencil#init()
 augroup END
+let g:pencil#wrapModeDefault = 'hard'
+let g:pencil#textwidth = 80
+let g:pencil#conceallevel = 0
+let g:pencil#concealcursor = 'c'
+let g:pencil#autoformat = 1
+
+" Markdown
+let g:vim_markdown_conceal = 0
+let g:vim_markdown_folding_disabled = 1
 
 " Neovim
 set number
