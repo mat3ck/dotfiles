@@ -23,3 +23,6 @@ cp -frv ./config/rofi ~/.config
 
 # antigen
 cp -frv ./config/antigen ~/.config
+
+# neovim
+cp -frv ./config/nvim ~/.config
