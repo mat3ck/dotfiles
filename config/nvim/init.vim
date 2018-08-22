@@ -10,9 +10,6 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'Townk/vim-autoclose'
 " Autocompletion
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-" Writting
-Plug 'reedes/vim-pencil'
-Plug 'plasticboy/vim-markdown'
 " VCS
 Plug 'mhinz/vim-signify'
 
@@ -60,30 +57,16 @@ inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 " Autoclose
 let g:AutoClosePreserveDotReg = 0
 
-" Pencil
-augroup pencil
-	autocmd!
-	autocmd FileType markdown,mkd,text call pencil#init()
-augroup END
-let g:pencil#wrapModeDefault = 'hard'
-let g:pencil#textwidth = 80
-let g:pencil#conceallevel = 0
-let g:pencil#concealcursor = 'c'
-let g:pencil#autoformat = 1
-
-" Markdown
-let g:vim_markdown_conceal = 0
-let g:vim_markdown_folding_disabled = 1
-
 " Neovim
 set number
 set signcolumn=yes
 set colorcolumn=81
 set textwidth=80
-set nowrap
+set wrap
 set scrolloff=8
 
-set listchars=tab:▸\ ,eol:¬,trail:~
+set list
+set listchars=tab:\ \ ,trail:$
 
 set showmatch
 
