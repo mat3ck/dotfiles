@@ -8,6 +8,8 @@
 bindsym $mod+Shift+e exit
 # Reload the configuration file
 bindsym $mod+Shift+c reload
+# Lock sway
+bindsym $mod+Shift+x exec swaylock -i $background
 
 # Kill focused window
 bindsym $mod+Shift+q kill
