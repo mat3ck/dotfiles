@@ -1,5 +1,8 @@
 # Main sway config file
 
+# Run swaylock on startupt
+exec swaylock -i ~/.config/sway/config.d/swing/background.jpg
+
 ## Confif dir
 set $config_dir ~/.config/sway/config.d
 ## Variables

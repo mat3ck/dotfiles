@@ -20,6 +20,6 @@ alias grep='grep --color=auto'
 alias ls='ls --color=auto'
 
 # Launching wayland
-if [ -z "$DISPLAY" ] && [ -n "$XDG_VTNR" ] && [ "$XDG_VTNR" -lt 3 ]; then
+if [ -z "$DISPLAY" ] && [ -n "$XDG_VTNR" ] && [ "$XDG_VTNR" -eq 1 ]; then
 	sway
 fi
