@@ -7,6 +7,8 @@ export EDITOR=nvim
 export VISUAL=nvim
 export TERMINAL=termite
 export BROWSER=firefox
+# Ruby gems
+PATH="$PATH:$(ruby -e 'print Gem.user_dir')/bin"
 
 # antigen variables
 export ADOTDIR=~/.config/antigen
