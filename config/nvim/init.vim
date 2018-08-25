@@ -62,7 +62,7 @@ set number
 set signcolumn=yes
 set colorcolumn=81
 set textwidth=80
-set wrap
+set nowrap
 set scrolloff=8
 
 set list
