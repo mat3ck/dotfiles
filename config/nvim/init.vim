@@ -1,23 +1,27 @@
-call plug#begin('~/.local/share/nvim/plugged')
+set runtimepath+=~/usr/share/vim/vimfiles/autoload/dein.vim
 
-" Theming
-Plug 'chriskempson/base16-vim'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-" Utilities
-Plug 'scrooloose/nerdtree'
-Plug 'ryanoasis/vim-devicons'
-Plug 'Townk/vim-autoclose'
-" Autocompletion
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-" VCS
-Plug 'mhinz/vim-signify'
-
-call plug#end()
-
-
-" Vim-Plug
-let g:plug_window = 'vertical topleft tabnew'
+if dein#load_state('~/.cache/dein')
+	call dein#begin('~/.cache/dein')
+	call dein#add('~/.cache/dein/repos/github.com/Shougo/dein.vim')
+	" Theming
+	call dein#add('chriskempson/base16-vim')
+	call dein#add('vim-airline/vim-airline')
+	call dein#add('vim-airline/vim-airline-themes')
+	" Utilities
+	call dein#add('scrooloose/nerdtree')
+	call dein#add('ryanoasis/vim-devicons')
+	call dein#add('Townk/vim-autoclose')
+	" Autocompletion
+	call dein#add('Shougo/deoplete.nvim')
+	" VCS
+	call dein#add('mhinz/vim-signify')
+	if !has('nvim')
+		call dein#add('roxma/nvim-yarp')
+		call dein#add('roxma/vim-hug-neovim-rpc')
+	endif
+	call dein#end()
+	call dein#save_state()
+endif
 
 " Colorscheme
 colorscheme base16-default-dark
