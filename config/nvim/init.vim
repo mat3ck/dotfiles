@@ -69,10 +69,6 @@ let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#fnamemod = ':t'
 
-" Nerdtree
-nmap <silent> <C-n> :Defx -split=vertical -winwidth=25 -direction=topleft -toggle<CR>
-let g:NERDTreeQuitOnOpen = 1
-
 " Signify
 let g:signify_vcs_list = [ 'git', 'hg', 'svn' ]
 let g:signify_realtime = 0
