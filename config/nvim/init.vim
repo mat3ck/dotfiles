@@ -1,20 +1,24 @@
-set runtimepath+=~/usr/share/vim/vimfiles/autoload/dein.vim
+" TODO
+" Add denite and defx
+" Complete deoplete config with jedi and clang_complete support
+
+" dein installed at /usr/share/vim/vimfiles/autoload/dein.vim
 
 if dein#load_state('~/.cache/dein')
 	call dein#begin('~/.cache/dein')
-	call dein#add('~/.cache/dein/repos/github.com/Shougo/dein.vim')
 	" Theming
 	call dein#add('chriskempson/base16-vim')
 	call dein#add('vim-airline/vim-airline')
 	call dein#add('vim-airline/vim-airline-themes')
 	" Utilities
-	call dein#add('scrooloose/nerdtree')
 	call dein#add('ryanoasis/vim-devicons')
 	call dein#add('Townk/vim-autoclose')
+	call dein#add('Shougo/denite.nvim')
 	" Autocompletion
 	call dein#add('Shougo/deoplete.nvim')
 	" VCS
 	call dein#add('mhinz/vim-signify')
+	call dein#add('roxma/nvim-yarp')
 	if !has('nvim')
 		call dein#add('roxma/nvim-yarp')
 		call dein#add('roxma/vim-hug-neovim-rpc')
@@ -25,56 +29,97 @@ endif
 
 " Colorscheme
 colorscheme base16-default-dark
-highlight LineNr cterm=bold ctermbg=0 ctermfg=8
-highlight SignColumn cterm=bold ctermbg=0 ctermfg=8
-highlight ColorColumn ctermbg=8 ctermfg=8
-highlight VertSplit ctermbg=8 ctermfg=8
-highlight Error ctermbg=9 ctermfg=0
-highlight ErrorMsg ctermbg=9 ctermfg=0
-highlight StatusLine cterm=bold ctermbg=8 ctermfg=10
-highlight WildMenu cterm=bold ctermbg=10 ctermfg=8
-highlight IncSearch ctermbg=14 ctermfg=0
-highlight Search ctermbg=11 ctermfg=0
-highlight Substitute ctermbg=11 ctermfg=0
-highlight Todo cterm=bold ctermbg=10 ctermfg=8
+function! s:base16_customize() abort
+	" General
+	call Base16hi("LineNr", "", "", g:base16_cterm03, g:base16_cterm00, "bold", "")
+	call Base16hi("SignColumn", "", "", g:base16_cterm03, g:base16_cterm00, "bold", "")
+	call Base16hi("ColorColumn", "", "", "", g:base16_cterm03, "", "")
+	call Base16hi("VertSplit", "", "", g:base16_cterm03, g:base16_cterm00, "", "")
+	call Base16hi("Error", "", "", g:base16_cterm00, g:base16_cterm09, "", "")
+	call Base16hi("ErrorMsg", "", "", g:base16_cterm00, g:base16_cterm09, "", "")
+	call Base16hi("StatusLine", "", "", g:base16_cterm0B, g:base16_cterm03, "bold", "")
+	call Base16hi("WildMenu", "", "", g:base16_cterm03, g:base16_cterm0B, "bold", "")
+	call Base16hi("Search", "", "", g:base16_cterm00, g:base16_cterm0A, "", "")
+	call Base16hi("IncSearch", "", "", g:base16_cterm00, g:base16_cterm0A, "", "")
+	call Base16hi("Substitute", "", "", g:base16_cterm00, g:base16_cterm0F, "", "")
+	call Base16hi("Todo", "", "", g:base16_cterm03, g:base16_cterm0F, "bold", "")
+	" Signify
+	call Base16hi("SignifySignAdd", "", "", g:base16_cterm0B, g:base16_cterm00, "bold", "")
+	call Base16hi("SignifySignDelete", "", "", g:base16_cterm09, g:base16_cterm00, "bold", "")
+	call Base16hi("SignifySignChange", "", "", g:base16_cterm0D, g:base16_cterm00, "bold", "")
+	"Deoplete
+	call Base16hi("Pmenu", "", "", g:base16_cterm01, g:base16_cterm03, "", "")
+	call Base16hi("PmenuSel", "", "", g:base16_cterm03, g:base16_cterm01, "", "")
+	call Base16hi("PmenuSbar", "", "", g:base16_cterm01, g:base16_cterm03, "", "")
+	call Base16hi("PmenuThumb", "", "", g:base16_cterm03, g:base16_cterm01, "", "")
+	" Nerdtree
+	call Base16hi("Directory", "", "", g:base16_cterm0D, "", "bold", "")
+	call Base16hi("TabLineSel", "", "", g:base16_cterm0E, g:base16_cterm09, "bold", "")
+	call Base16hi("NERDTreeDirSlash", "", "", g:base16_cterm0D, "", "bold", "")
+	call Base16hi("NERDTreeExecFile", "", "", g:base16_cterm0B, "", "bold", "")
+endfunction
+augroup on_change_colorschema
+	autocmd!
+	autocmd ColorScheme * call s:base16_customize()
+augroup END
 
 " Airline
-let g:airline#extensions#tabline#enabled = 1
-let g:airline_powerline_fonts = 1
 let g:airline_theme = 'base16color'
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#fnamemod = ':t'
 
 " Nerdtree
-map <C-n> :NERDTreeToggle<CR>
+nmap <silent> <C-n> :Defx -split=vertical -winwidth=25 -direction=topleft -toggle<CR>
+let g:NERDTreeQuitOnOpen = 1
 
 " Signify
-highlight SignifySignAdd cterm=bold ctermbg=0 ctermfg=10
-highlight SignifySignDelete cterm=bold ctermbg=0 ctermfg=9
-highlight SignifySignChange cterm=bold ctermbg=0 ctermfg=12
+let g:signify_vcs_list = [ 'git', 'hg', 'svn' ]
+let g:signify_realtime = 0
 
 " Deoplete
 let g:deoplete#enable_at_startup = 1
-highlight Pmenu ctermbg=8 ctermfg=10
-highlight PmenuSel ctermbg=10 ctermfg=8
-highlight PmenuSbar ctermbg=10 ctermfg=8
-inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
+call deoplete#custom#option('smart_case', v:true)
+call deoplete#custom#option('sources',	{ '_': ['buffer', 'file'],
+										\ })
+call deoplete#custom#option('require_same_filetype', v:false)
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<Tab>"
+inoremap <expr> <Esc> pumvisible() ? "\<C-e>\<Esc>" : "\<Esc>"
+inoremap <expr> <CR>  pumvisible() ? "\<C-y>" : "\<CR>"
+inoremap <expr> <Down> pumvisible() ? "\<C-e>\<Down>" : "\<Down>"
+inoremap <expr> <Up>  pumvisible() ? "\<C-e>\<Up>" : "\<Up>"
+inoremap <expr> <PageDown> pumvisible() ? "\<PageDown>\<C-p>\<C-n>" : "\<PageDown>"
+inoremap <expr> <PageUp>   pumvisible() ? "\<PageUp>\<C-p>\<C-n>" : "\<PageUp>"
 
 " Autoclose
 let g:AutoClosePreserveDotReg = 0
 
 " Neovim
+command W w
+command Q q
+
+map <silent> <A-right> :bnext! <CR>
+map <silent> <A-left> :bprev! <CR>
+map <silent> gb :bnext! <CR>
+map <silent> gB :bprev! <CR>
+map <silent> {i}gB :buffer {i}! <CR>
+
 set number
 set signcolumn=yes
-set colorcolumn=81
 set textwidth=80
 set nowrap
+set colorcolumn=81
 set scrolloff=8
+set wildmenu
 
-set list
-set listchars=tab:\ \ ,trail:$
-
-set showmatch
-
-set tabstop=8
-set shiftwidth=8
+set tabstop=4
+set shiftwidth=4
+set autoindent
+set copyindent
 set smartindent
 set noexpandtab
+set list
+set listchars=tab:\ \ ,trail:$,extends:#
+set showmatch
+set smartcase
