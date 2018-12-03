@@ -16,6 +16,9 @@ if dein#load_state('~/.cache/dein')
 	call dein#add('Shougo/denite.nvim')
 	" Autocompletion
 	call dein#add('Shougo/deoplete.nvim')
+	call dein#add('Shougo/neosnippet.vim')
+	call dein#add('Shougo/neosnippet-snippets')
+	call dein#add('zchee/deoplete-jedi')
 	" VCS
 	call dein#add('mhinz/vim-signify')
 	call dein#add('roxma/nvim-yarp')
@@ -77,6 +80,7 @@ let g:signify_realtime = 0
 let g:deoplete#enable_at_startup = 1
 call deoplete#custom#option('smart_case', v:true)
 call deoplete#custom#option('sources',	{ '_': ['buffer', 'file'],
+										\ 'python': ['buffer', 'file'],
 										\ })
 call deoplete#custom#option('require_same_filetype', v:false)
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
