@@ -119,3 +119,11 @@ set list
 set listchars=tab:\ \ ,trail:$,extends:#
 set showmatch
 set smartcase
+
+" Python option
+autocmd FileType python setlocal tabstop=8
+autocmd FileType python setlocal shiftwidth=8
+autocmd FileType python setlocal autoindent
+autocmd FileType python setlocal copyindent
+autocmd FileType python setlocal smartindent
+autocmd FileType python setlocal noexpandtab
