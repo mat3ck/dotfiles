@@ -99,6 +99,9 @@ let g:AutoClosePreserveDotReg = 0
 command W w
 command Q q
 
+nnoremap ; :
+
+map <silent> // :nohlsearch <CR>
 map <silent> <A-right> :bnext! <CR>
 map <silent> <A-left> :bprev! <CR>
 map <silent> gb :bnext! <CR>
@@ -107,9 +110,9 @@ map <silent> {i}gB :buffer {i}! <CR>
 
 set number
 set signcolumn=yes
-set textwidth=80
+set textwidth=79
 set nowrap
-set colorcolumn=81
+set colorcolumn=80
 set scrolloff=8
 set wildmenu
 
@@ -125,9 +128,11 @@ set showmatch
 set smartcase
 
 " Python option
-autocmd FileType python setlocal tabstop=8
-autocmd FileType python setlocal shiftwidth=8
+autocmd FileType python setlocal tabstop=4
+autocmd FileType python setlocal shiftwidth=4
+autocmd FileType python setlocal softtabstop=4
+autocmd FileType python setlocal expandtab
+autocmd FileType python setlocal smarttab
 autocmd FileType python setlocal autoindent
 autocmd FileType python setlocal copyindent
 autocmd FileType python setlocal smartindent
-autocmd FileType python setlocal noexpandtab
