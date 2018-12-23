@@ -14,6 +14,8 @@ antigen theme agnoster
 
 antigen apply
 
+alias -g vivado='/opt/Xilinx/Vivado/2018.3/bin/vivado'
+
 # Lines configured by zsh-newuser-install
 HISTFILE=$ZDOTDIR/.histfile
 HISTSIZE=1000
