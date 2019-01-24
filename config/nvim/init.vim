@@ -21,11 +21,9 @@ if dein#load_state('~/.cache/dein')
 	call dein#add('zchee/deoplete-jedi')
 	" VCS
 	call dein#add('mhinz/vim-signify')
+	" Remote plugins
 	call dein#add('roxma/nvim-yarp')
-	if !has('nvim')
-		call dein#add('roxma/nvim-yarp')
-		call dein#add('roxma/vim-hug-neovim-rpc')
-	endif
+	call dein#add('roxma/vim-hug-neovim-rpc')
 	call dein#end()
 	call dein#save_state()
 endif
@@ -78,10 +76,15 @@ let g:signify_realtime = 0
 
 " Deoplete
 let g:deoplete#enable_at_startup = 1
+call deoplete#custom#option('yarp', v:true)
 call deoplete#custom#option('smart_case', v:true)
-call deoplete#custom#option('sources',	{ '_': ['buffer', 'file'],
-										\ 'python': ['buffer', 'file'],
+call deoplete#custom#source('_', 'disabled_syntaxes', ['Comment', 'String'])
+call deoplete#custom#option('sources',	{ '_': ['buffer', 'file','neosnippet'],
+										\ 'python': ['buffer', 'file', 'neosnippet'],
 										\ })
+call deoplete#custom#source('buffer', 'rank', 10)
+call deoplete#custom#source('file', 'rank', 09)
+call deoplete#custom#source('neosnippet', 'rank', 05)
 call deoplete#custom#option('require_same_filetype', v:false)
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<Tab>"
@@ -91,6 +94,11 @@ inoremap <expr> <Down> pumvisible() ? "\<C-e>\<Down>" : "\<Down>"
 inoremap <expr> <Up>  pumvisible() ? "\<C-e>\<Up>" : "\<Up>"
 inoremap <expr> <PageDown> pumvisible() ? "\<PageDown>\<C-p>\<C-n>" : "\<PageDown>"
 inoremap <expr> <PageUp>   pumvisible() ? "\<PageUp>\<C-p>\<C-n>" : "\<PageUp>"
+
+" Neosnippet
+imap <C-k> <Plug>(neosnippet_expand_or_jump)
+smap <C-k> <Plug>(neosnippet_expand_or_jump)
+xmap <C-k> <Plug>(neosnippet_expand_target)
 
 " Autoclose
 let g:AutoClosePreserveDotReg = 0
