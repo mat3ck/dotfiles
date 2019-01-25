@@ -22,8 +22,10 @@ if dein#load_state('~/.cache/dein')
 	" VCS
 	call dein#add('mhinz/vim-signify')
 	" Remote plugins
-	"call dein#add('roxma/nvim-yarp')
-	"call dein#add('roxma/vim-hug-neovim-rpc')
+	if !has('nvim')
+		call dein#add('roxma/nvim-yarp')
+		call dein#add('roxma/vim-hug-neovim-rpc')
+	endif
 	call dein#end()
 	call dein#save_state()
 endif
