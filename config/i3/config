@@ -1,0 +1,213 @@
+### i3 config file
+
+
+#
+# Variables
+#
+
+# modkey
+set $mod Mod4
+# terminal
+set $term termite
+# menu
+set $menu rofi -show run
+# background
+set $background ~/.config/i3/background.png
+
+# font
+font pango:DejaVu Sans Mono Nerd Font 12.5
+
+# colors
+set $color0 #2e2a33
+set $color8 #504a59
+set $color1 #bf303c
+set $color9 #bf303c
+set $color2 #7bbf30
+set $color10 #7bbf30
+set $color3 #bfbf30
+set $color11 #bfbf30
+set $color4 #3060bf
+set $color12 #3060bf
+set $color5 #a730bf
+set $color13 #a730bf
+set $color6 #bf5f30
+set $color14 #bf5f30
+set $color7 #e5e4ce
+set $color15 #fffff2
+
+# define workspaces
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
+set $ws10 "10"
+
+
+#
+# Status bar
+#
+
+bar {
+	status_command i3blocks
+
+	position top
+	font pango:DejaVu Sans Mono Nerd Font 12.5
+
+	colors {
+		background $color0
+		statusline $color7
+		separator $color7
+		focused_workspace $color8 $color7 $color0
+		inactive_workspace $color8 $color0 $color7
+	}
+}
+
+
+#
+# Window decoration
+#
+
+# border
+for_window [class="^.*"] border pixel 2
+# gaps
+gaps outer 4
+gaps inner 4
+# colors
+client.background		$color0
+client.focused			$color7 $color7 $color0 $color7 $color7 $color7
+client.focused_inactive	$color7 $color8 $color7 $color8 $color8 $color8
+client.unfocused		$color8 $color8 $color7 $color8 $color8 $color8
+client.urgent			$color7 $color7 $color1 $color8 $color1 $color7
+client.placeholder		$color8 $color8 $color7 $color8 $color8 $color8
+
+
+#
+# Keybindings
+#
+
+# exit i3
+bindsym $mod+Shift+e exit
+# reload the configuration file
+bindsym $mod+Shift+c reload
+# restart i3 inplace
+bindsym $mod+Shift+r restart
+# lock i3
+bindsym $mod+Shift+x exec i3lock -i $background
+
+# start terminal
+bindsym $mod+Return exec $term
+# start menu
+bindsym $mod+d exec $menu
+
+# kill focused window
+bindsym $mod+Shift+q kill
+
+# modifier to drag floating windows to their wanted position
+floating_modifier $mod
+
+# change focus
+bindsym $mod+j focus left
+bindsym $mod+k focus down
+bindsym $mod+l focus up
+bindsym $mod+semicolon focus right
+# ditto with arrow keys
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# move focused window
+bindsym $mod+Shift+j move left
+bindsym $mod+Shift+k move down
+bindsym $mod+Shift+l move up
+bindsym $mod+Shift+semicolon move right
+# ditto with arrow keys
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+# split in horizontal orientation
+bindsym $mod+h split h
+# split in vertical orientation
+bindsym $mod+v split v
+
+# enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen toggle
+
+# change container layout (stacked, tabbed, toggle split)
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+
+# toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+# change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle
+
+# focus the parent container
+bindsym $mod+a focus parent
+# focus the child container
+bindsym $mod+Shift+a focus child
+
+# switch to workspace
+bindsym $mod+1 workspace $ws1
+bindsym $mod+2 workspace $ws2
+bindsym $mod+3 workspace $ws3
+bindsym $mod+4 workspace $ws4
+bindsym $mod+5 workspace $ws5
+bindsym $mod+6 workspace $ws6
+bindsym $mod+7 workspace $ws7
+bindsym $mod+8 workspace $ws8
+bindsym $mod+9 workspace $ws9
+bindsym $mod+0 workspace $ws10
+
+# move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace $ws1
+bindsym $mod+Shift+2 move container to workspace $ws2
+bindsym $mod+Shift+3 move container to workspace $ws3
+bindsym $mod+Shift+4 move container to workspace $ws4
+bindsym $mod+Shift+5 move container to workspace $ws5
+bindsym $mod+Shift+6 move container to workspace $ws6
+bindsym $mod+Shift+7 move container to workspace $ws7
+bindsym $mod+Shift+8 move container to workspace $ws8
+bindsym $mod+Shift+9 move container to workspace $ws9
+bindsym $mod+Shift+0 move container to workspace $ws10
+
+# resize mod
+bindsym $mod+r mode "resize"
+
+mode "resize" {
+	# resize bindings
+	bindsym j resize shrink width 10 px or 10 ppt
+	bindsym k resize grow height 10 px or 10 ppt
+	bindsym l resize shrink height 10 px or 10 ppt
+	bindsym semicolon resize grow width 10 px or 10 ppt
+	# ditto with arrow keys
+	bindsym Left resize shrink width 10 px or 10 ppt
+	bindsym Down resize grow height 10 px or 10 ppt
+	bindsym Up resize shrink height 10 px or 10 ppt
+	bindsym Right resize grow width 10 px or 10 ppt
+
+	# return to default mod
+	bindsym Return mode "default"
+	bindsym Escape mode "default"
+	bindsym $mod+r mode "default"
+}
+# There also is the (new) i3-dmenu-desktop which only displays applications
+# shipping a .desktop file. It is a wrapper around dmenu, so you need that
+# installed.
+# bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
+
+
+
+
+
+
+
+

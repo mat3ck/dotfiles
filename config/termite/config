@@ -10,7 +10,7 @@ audible_bell = false
 size_hints = false
 urgent_on_bell = true
 # Font and cursor
-font = DejaVuSansMonoNerdFontMono 12
+font = DejaVuSansMonoNerdFontMono 13
 allow_bold = true
 cursor_blink = off
 cursor_shape = block
