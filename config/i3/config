@@ -98,6 +98,8 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 # lock i3
 bindsym $mod+Shift+x exec i3lock -i $background
+# sreeenshot
+bindsym Print exec scrot -e 'mv $f /tmp/ && gimp /tmp/$f'
 
 # start terminal
 bindsym $mod+Return exec $term
