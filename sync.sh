@@ -1,13 +1,12 @@
 ### Just a little script to sync this folder with system dotfiles
 
 # zsh
-cp -fv ./zshenv ~/.zshenv
-cp -frv ./config/zsh ~/.config
-mv -fv ~/.config/zsh/zprofile ~/.config/zsh/.zprofile
-mv -fv ~/.config/zsh/zshrc ~/.config/zsh/.zshrc
+cp -fv ./zshenv -T ~/.zshenv
+cp -fv ./config/zsh/zshrc -T ~/.config/zsh/.zshrc
+cp -fv ./config/zsh/zprofile -T ~/.config/zsh/.zprofile
 
-# sway
-cp -frv ./config/sway ~/.config
+# i3
+cp -frv ./config/i3 ~/.config
 
 # i3blocks
 cp -frv ./config/i3blocks ~/.config
