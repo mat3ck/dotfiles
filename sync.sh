@@ -1,27 +1,30 @@
 ### Just a little script to sync this folder with system dotfiles
 
 # zsh
-cp -fv ./zshenv -T ~/.zshenv
-cp -fv ./config/zsh/zshrc -T ~/.config/zsh/.zshrc
-cp -fv ./config/zsh/zprofile -T ~/.config/zsh/.zprofile
+cp -fv ./src/zsh/zshenv -T ~/.zshenv
+cp -fv ./src/zsh/zshrc -T ~/.config/zsh/.zshrc
+cp -fv ./src/zsh/zprofile -T ~/.config/zsh/.zprofile
+
+# xorg
+cp -fv ./src/xorg/xinitrc -T ~/.xinitrc
 
 # i3
-cp -frv ./config/i3 ~/.config
+cp -frv ./src/yay ~/.config
+
+# i3
+cp -frv ./src/i3 ~/.config
 
 # i3blocks
-cp -frv ./config/i3blocks ~/.config
+cp -frv ./src/i3blocks ~/.config
 
 # termite
-cp -frv ./config/termite ~/.config
+cp -frv ./src/termite ~/.config
 
 # ranger
-cp -frv ./config/ranger ~/.config
+cp -frv ./src/ranger ~/.config
 
 # rofi
-cp -frv ./config/rofi ~/.config
-
-# antigen
-cp -frv ./config/antigen ~/.config
+cp -frv ./src/rofi ~/.config
 
 # neovim
-cp -frv ./config/nvim ~/.config
+cp -frv ./src/nvim ~/.config
