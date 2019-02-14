@@ -1,5 +1,11 @@
 ### i3 config file
 
+#
+# Startup programs
+#
+
+exec devmon
+
 
 #
 # Variables
