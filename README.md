@@ -1,31 +1,18 @@
 # Personal dotfiles
 
 * __OS__ : [Archlinux](https://www.archlinux.org/)
-
-* __WM__ : [i3-gaps](https://github.com/Airblader/i3)
-
-  With [polybar](https://github.com/jaagr/polybar) as statusline.
-
-* __Term__ : [termite](https://github.com/thestinger/termite)
-
-  With homemade colorscheme, see in termite/config
-
-* __Shell__ : Zsh
-
-  With [Anthigen](https://github.com/zsh-users/antigen) plugin manager (to be 
-  changed)
-
-* __Editor__ : [NeoVim](https://github.com/neovim/neovim)
-
-  With [dein](https://github.com/Shougo/dein.vim) plugin manager
-
+* __WM__ : [i3-gaps](https://github.com/Airblader/i3) with
+  [polybar](https://github.com/jaagr/polybar) as statusline.
+* __Term__ : [termite](https://github.com/thestinger/termite) with homemade
+  colorscheme, see in termite/config
+* __Shell__ : Zsh with [Anthigen](https://github.com/zsh-users/antigen) plugin
+  manager (to be changed)
+* __Editor__ : [NeoVim](https://github.com/neovim/neovim) with
+  [dein](https://github.com/Shougo/dein.vim) plugin manager
 * __File manager__ : [Ranger](http://ranger.github.io/)
-
 * __Font__ : DejaVu from [NerdFont](http://nerdfonts.com/) and
-[Terminus](http://terminus-font.sourceforge.net/) for tty
-
+  [Terminus](http://terminus-font.sourceforge.net/) for tty
 * __Launcher__ : [Rofi](https://github.com/DaveDavenport/rofi)
-
 * [__Wallpaper__](https://alpha.wallhaven.cc/wallpaper/30415)
 
 
