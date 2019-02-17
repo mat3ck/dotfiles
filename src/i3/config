@@ -85,7 +85,7 @@ client.placeholder		$color8 $color8 $color7 $color8 $color8 $color8
 #
 
 # exit i3
-bindsym $mod+Shift+e exit
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'exit i3?' -b 'Yes' 'i3-msg exit'"
 # reload the configuration file
 bindsym $mod+Shift+c reload
 # restart i3 inplace
@@ -118,10 +118,10 @@ bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
 # move focused window
-bindsym $mod+Shift+j move left
-bindsym $mod+Shift+k move down
-bindsym $mod+Shift+l move up
-bindsym $mod+Shift+semicolon move right
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
 # ditto with arrow keys
 bindsym $mod+Shift+Left move left
 bindsym $mod+Shift+Down move down
@@ -174,6 +174,10 @@ bindsym $mod+Shift+7 move container to workspace $ws7
 bindsym $mod+Shift+8 move container to workspace $ws8
 bindsym $mod+Shift+9 move container to workspace $ws9
 bindsym $mod+Shift+0 move container to workspace $ws10
+
+# scratchpad
+bindsym $mod+backslash scratchpad show
+bindsym $mod+Shift+backslash move scratchpad
 
 # resize mod
 bindsym $mod+r mode "resize"
