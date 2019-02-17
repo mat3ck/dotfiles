@@ -13,7 +13,7 @@
 * __Font__ : DejaVu from [NerdFont](http://nerdfonts.com/) and
   [Terminus](http://terminus-font.sourceforge.net/) for tty
 * __Launcher__ : [Rofi](https://github.com/DaveDavenport/rofi)
-* [__Wallpaper__](https://alpha.wallhaven.cc/wallpaper/30415)
+* [__Wallpaper__](https://whvn.cc/735152)
 
 
 ## How-to

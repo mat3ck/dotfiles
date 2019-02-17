@@ -2,13 +2,6 @@
 
 
 #
-# Startup programs
-#
-
-exec devmon
-
-
-#
 # Variables
 #
 
@@ -18,7 +11,7 @@ set $mod Mod4
 set $term termite
 # menu
 set $menu rofi -show run
-# background
+# backgroun:
 set $background ~/.config/i3/background.png
 
 # font
@@ -53,6 +46,14 @@ set $ws7 "7"
 set $ws8 "8"
 set $ws9 "9"
 set $ws10 "10"
+
+
+#
+# Startup programs
+#
+
+exec feh --bg-fill "$background"
+exec devmon
 
 
 #
