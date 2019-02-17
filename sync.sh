@@ -32,3 +32,10 @@ cp -frv ./src/rofi ~/.config
 
 # neovim
 cp -frv ./src/nvim ~/.config
+
+# xdg
+cp -fv ./src/xdg/user-dirs.dirs -T ~/.config/user-dirs.dirs
+cp -fv ./src/xdg/user-dirs.locale -T ~/.config/user-dirs.locale
+
+# git
+cp -fv ./src/git/gitconfig -T ~/.gitconfig	
