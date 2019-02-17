@@ -1,0 +1,241 @@
+[colors]
+	transparent = #00000000
+	background = ${xrdb:background:#ffff00}
+	foreground = ${xrdb:foreground:#ffff00}
+	foreground_bold = ${xrdb:foreground_bold:#ffff00}
+	color0 = ${xrdb:color0:#ffff00}
+	color1 = ${xrdb:color1:#ffff00}
+	color2 = ${xrdb:color2:#ffff00}
+	color3 = ${xrdb:color3:#ffff00}
+	color4 = ${xrdb:color4:#ffff00}
+	color5 = ${xrdb:color5:#ffff00}
+	color6 = ${xrdb:color6:#ffff00}
+	color7 = ${xrdb:color7:#ffff00}
+	color8 = ${xrdb:color8:#ffff00}
+	color9 = ${xrdb:color9:#ffff00}
+	color10 = ${xrdb:color10:#ffff00}
+	color11 = ${xrdb:color11:#ffff00}
+	color12 = ${xrdb:color12:#ffff00}
+	color13 = ${xrdb:color13:#ffff00}
+	color14 = ${xrdb:color14:#ffff00}
+	color15 = ${xrdb:color15:#ffff00}
+
+
+[bar/main]
+	monitor = eDP-1
+	bottom = false
+	fixed-center = true
+	width = 100%
+	height = 32
+	background = ${colors.background}
+	foreground = ${colors.foreground}
+	radius-top = 4
+	radius-bottom = 4
+	line-size = 16
+	line-color = ${colors.background}
+	border-left-size = 8
+	border-right-size = 8
+	border-top-size = 8
+	border-bottom-size = 0
+	border-color = ${colors.transparent}
+	padding = 2
+	module-margin = 2
+
+	font-0 = DejaVuSansMonoNerdFontMono:size=13;4
+
+	modules-left = menu i3
+	modules-center = cpu ram
+	modules-right = backlight volume wifi battery date
+	separator =
+
+	tray-position = none
+
+	wm-restack = i3
+
+
+[module/backlight]
+	type = internal/xbacklight
+
+	format = <ramp> <bar>
+
+	ramp-0 = 
+	ramp-1 = 
+	ramp-2 = 
+
+	bar-width = 10
+	bar-indicator = |
+	bar-indicator-foreground = ${colors.foreground}
+	bar-fill = ─
+	bar-fill-foreground = ${colors.foreground}
+	bar-empty = ─
+	bar-empty-foreground = ${colors.color8}
+
+
+[module/battery]
+	type = internal/battery
+	full-at = 98
+	battery = BAT0
+	adapter = ADP0
+	poll-interval = 5
+
+	format-charging = <animation-charging> <label-charging>
+	format-discharging = <ramp-capacity> <label-discharging>
+	format-full = <ramp-capacity> <label-full>
+
+	label-charging = %percentage:2%
+	label-discharging = %percentage:2%
+	label-full = %percentage:3%
+
+	ramp-capacity-0 = 
+	ramp-capacity-1 = 
+	ramp-capacity-2 = 
+	ramp-capacity-3 = 
+	ramp-capacity-4 = 
+	ramp-capacity-5 = 
+	ramp-capacity-0-foreground = ${colors.color1}
+	ramp-capacity-1-foreground = ${colors.color6}
+	ramp-capacity-2-foreground = ${colors.color3}
+	ramp-capacity-3-foreground = ${colors.color3}
+	ramp-capacity-4-foreground = ${colors.color2}
+	ramp-capacity-5-foreground = ${colors.color2}
+
+	animation-charging-0 = 
+	animation-charging-0-foreground = ${colors.color4}
+	animation-charging-framerate = 1000
+
+
+[module/cpu]
+	type = internal/cpu
+	interval = 0.5
+
+	format = <label> <ramp-load>
+	label = %percentage:3%
+	label-foreground = ${colors.foreground}
+
+	ramp-load-0 = 
+	ramp-load-1 = 
+	ramp-load-2 = 
+	ramp-load-3 = 
+	ramp-load-0-foreground = ${colors.color2}
+	ramp-load-1-foreground = ${colors.color3}
+	ramp-load-2-foreground = ${colors.color6}
+	ramp-load-3-foreground = ${colors.color1}
+
+
+[module/date]
+	type = internal/date
+	interval = 1.0
+	date = %a %b %d
+	time = %H:%M
+	time-alt = %H:%M:%S
+
+	format =  <label>
+	format-background = ${colors.background}
+	format-foreground = ${colors.foreground}
+	label = %date%, %time%
+	label-foreground = ${colors.foreground}
+
+
+[module/i3]
+	type = internal/i3
+
+	pin-workspaces = true
+	strip-wsnumbers = true
+	index-sort = true
+	enable-click = false
+	enable-scroll = false
+	wrapping-scroll = false
+	reverse-scroll = false
+	fuzzy-match = false
+
+	label-focused = %index%
+	label-focused-foreground = ${colors.background}
+	label-focused-background = ${colors.foreground}
+	label-focused-underline = ${colors.transparent}
+	label-focused-padding = 1
+
+	label-unfocused = %index%
+	label-unfocused-padding = 1
+
+	label-visible = %index%
+	label-visible-underline = ${colors.transparent}
+	label-visible-padding = 1
+
+	label-urgent = %index%
+	label-urgent-foreground = ${colors.background}
+	label-urgent-background = ${colors.color1}
+	label-urgent-padding = 1
+
+	label-separator =
+	label-separator-padding = 0
+	label-separator-foreground = ${colors.foreground}
+
+
+[module/ram]
+	type = internal/memory
+	format = <ramp-used> <label>
+	label = %percentage_free:2%
+
+	ramp-used-0 = 
+	ramp-used-1 = 
+	ramp-used-2 = 
+	ramp-used-3 = 
+	ramp-used-0-foreground = ${colors.color2}
+	ramp-used-1-foreground = ${colors.color3}
+	ramp-used-2-foreground = ${colors.color6}
+	ramp-used-3-foreground = ${colors.color1}
+
+
+[module/volume]
+	type = internal/alsa
+	master-soundcard = default
+	speaker-soundcard = default
+	headphone-soundcard = default
+	master-mixer = Master
+	speaker-mixer = Speaker
+	headphone-mixer = Headphone
+	headphone-id = 13
+
+	interval = 5
+	format-volume = <ramp-volume> <bar-volume>
+	format-muted = <label-muted> <bar-volume>
+	format-muted-foreground = ${colors.color8}
+	label-muted = ﱝ
+
+	ramp-volume-0 = 奄
+	ramp-volume-1 = 奔
+	ramp-volume-2 = 墳
+	ramp-headphones-0 = 
+	ramp-headphones-1 = 
+
+	bar-volume-width = 10
+	bar-volume-indicator = |
+	bar-volume-indicator-foreground = ${colors.foreground}
+	bar-volume-fill = ─
+	bar-volume-fill-foreground = ${colors.foreground}
+	bar-volume-empty = ─
+	bar-volume-empty-foreground = ${colors.color8}
+
+
+[module/wifi]
+	type = internal/network
+	interface = wlp2s0
+	interval = 5.0
+
+	format-connected = <ramp-signal> <label-connected>
+	label-connected = %signal:2%
+
+	format-disconnected = <label-disconnected>
+	label-disconnected = 睊
+	label-disconnected-foreground = ${colors.color1}
+
+	ramp-signal-0 = 直
+	ramp-signal-1 = 直
+	ramp-signal-2 = 直
+	ramp-signal-3 = 直
+	ramp-signal-0-foreground = ${colors.color1}
+	ramp-signal-1-foreground = ${colors.color6}
+	ramp-signal-2-foreground = ${colors.color3}
+	ramp-signal-3-foreground = ${colors.color2}
+
+
