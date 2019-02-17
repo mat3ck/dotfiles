@@ -1,20 +1,32 @@
 # Personal dotfiles
 
-* __OS__ : [Archlinux](https://www.archlinux.org/)  
-* __WM__ : [SwayWM](http://swaywm.org/)  
-	With [i3blocks](https://github.com/vivien/i3blocks) as statusline for
-	swaybar.
-* __Term__ : [termite](https://github.com/thestinger/termite)  
-	With homemade colorscheme, see in termite/config
-* __Shell__ : Zsh  
-	With [Anthigen](https://github.com/zsh-users/antigen) plugin manager
-* __Editor__ : [NeoVim](https://github.com/neovim/neovim)  
-	With [Vim-Plug](https://github.com/junegunn/vim-plug) plugin manager
-* __File manager__ : [Ranger](http://ranger.github.io/)  
+* __OS__ : [Archlinux](https://www.archlinux.org/)
+
+* __WM__ : [i3-gaps](https://github.com/Airblader/i3)
+
+  With [polybar](https://github.com/jaagr/polybar) as statusline.
+
+* __Term__ : [termite](https://github.com/thestinger/termite)
+
+  With homemade colorscheme, see in termite/config
+
+* __Shell__ : Zsh
+
+  With [Anthigen](https://github.com/zsh-users/antigen) plugin manager (to be 
+  changed)
+
+* __Editor__ : [NeoVim](https://github.com/neovim/neovim)
+
+  With [dein](https://github.com/Shougo/dein.vim) plugin manager
+
+* __File manager__ : [Ranger](http://ranger.github.io/)
+
 * __Font__ : DejaVu from [NerdFont](http://nerdfonts.com/) and
-  [Terminus](http://terminus-font.sourceforge.net/) for tty
-* __Launcher__ : [Rofi](https://github.com/DaveDavenport/rofi)  
-* [__Wallpaper__](https://alpha.wallhaven.cc/wallpaper/30415)  
+[Terminus](http://terminus-font.sourceforge.net/) for tty
+
+* __Launcher__ : [Rofi](https://github.com/DaveDavenport/rofi)
+
+* [__Wallpaper__](https://alpha.wallhaven.cc/wallpaper/30415)
 
 
 ## How-to
@@ -33,18 +45,22 @@ cd dotfiles
 
 ### Dependencies
 Common : `git`, `NerdFont`  
-Sway : `i3blocks`  
+i3 : `polybar`, `devmon`  
 Zsh : `antigen`  
-NeoVim : `Vim-Plug`, `pip` and neovim support (see
+NeoVim : `dein`, `pip` and neovim support (see
 [deoplete](https://github.com/Shougo/deoplete.nvim))  
-Ranger : `libcaca` for ascii preview of images  
+Ranger : `3wm` for image preview  
 
 See each plugin doc for more information.
 
-### Sway
-Config files are split to ease theme managing. The wallpaper is put in the theme
-folder. I use swaybar as a status bar with i3blocks, and have a personnal
-version of the wifi block in this repo to change few colors.
+### i3
+Requires the wallpaper in `~/.config/i3/background.png` or to properly set
+$background variable in config. It launches devmon at startup to automount
+removable medias.
+
+### polybar
+No additionnal plugin is required, just install and launch with proper i3
+configuration.
 
 ### Termite
 Custom config with custom colorscheme. See the colorscheme section for more
@@ -52,24 +68,22 @@ information on it.
 
 ### Zsh
 `~/.zshenv` set `$ZDOTDIR` to `~/.config/zsh`.  
-`.zprofile` contains environments variables and lauches sway.  
+`.zprofile` contains environments variables and lauches startx.  
 `.zshrc` uses Anthigen plugins manager to bundle `git`, `pip`,
 `zsh-syntax-highlighting`, `zsh-autosuggestions` and `agnoster` theme (requires
 powerline patched font) in addition to some custom settings.
 
 ### NeoVim
-Neovim with Vim-Plug plugins manager. I use base16-default-dark colorscheme with
+Neovim with dein plugins manager. I use base16-default-dark colorscheme with
 overwritten settings to use my homemade colorscheme set in termite config, same
 for airline.
 
 ### Ranger
-Custom config with imv added as image viewer. Image previews with w3m is not
-enabled since it doesn't work well in termite, it is done with img2txt instead
-(requires libcaca).
+Custom config with imv added as image viewer. Image previews with w3m is
+enabled but doesn't work well in termite.
 
 ### Other
-Rofi isn't customized and require mouse input to get focus in wayland (see [this
-issue](https://github.com/swaywm/sway/issues/267))
+Rofi isn't customized yet.
 
 ## Colorscheme
 
