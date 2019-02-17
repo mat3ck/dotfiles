@@ -58,21 +58,7 @@ set $ws10 "10"
 # Status bar
 #
 
-bar {
-	status_command i3blocks
-
-	position top
-	font pango:DejaVu Sans Mono Nerd Font 12.5
-
-	colors {
-		background $color0
-		statusline $color7
-		separator $color7
-		focused_workspace $color8 $color7 $color0
-		inactive_workspace $color8 $color0 $color7
-	}
-}
-
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 #
 # Window decoration
@@ -81,8 +67,8 @@ bar {
 # border
 for_window [class="^.*"] border pixel 2
 # gaps
-gaps outer 4
-gaps inner 4
+gaps outer 0
+gaps inner 8
 # colors
 client.background		$color0
 client.focused			$color7 $color7 $color0 $color7 $color7 $color7
