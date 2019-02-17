@@ -39,7 +39,7 @@
 	border-bottom-size = 0
 	border-color = ${colors.transparent}
 	padding = 2
-	module-margin = 2
+	module-margin = 1
 
 	font-0 = DejaVuSansMonoNerdFontMono:size=13;4
 
@@ -62,7 +62,7 @@
 	ramp-1 = 
 	ramp-2 = 
 
-	bar-width = 10
+	bar-width = 8
 	bar-indicator = |
 	bar-indicator-foreground = ${colors.foreground}
 	bar-fill = ─
@@ -208,7 +208,7 @@
 	ramp-headphones-0 = 
 	ramp-headphones-1 = 
 
-	bar-volume-width = 10
+	bar-volume-width = 8
 	bar-volume-indicator = |
 	bar-volume-indicator-foreground = ${colors.foreground}
 	bar-volume-fill = ─
