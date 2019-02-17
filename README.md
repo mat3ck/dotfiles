@@ -42,8 +42,8 @@ See each plugin doc for more information.
 
 ### i3
 Requires the wallpaper in `~/.config/i3/background.png` or to properly set
-$background variable in config. It launches devmon at startup to automount
-removable medias.
+$background variable in config, with feh. It launches devmon at startup to
+automount removable medias.
 
 ### polybar
 No additionnal plugin is required, just install and launch with proper i3
