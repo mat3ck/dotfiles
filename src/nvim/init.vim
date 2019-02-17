@@ -1,6 +1,5 @@
 " TODO
 " Add denite and defx
-" Complete deoplete config with jedi and clang_complete support
 
 " dein installed at /usr/share/vim/vimfiles/autoload/dein.vim
 
@@ -13,12 +12,12 @@ if dein#load_state('~/.cache/dein')
 	" Utilities
 	call dein#add('ryanoasis/vim-devicons')
 	call dein#add('Townk/vim-autoclose')
-	call dein#add('Shougo/denite.nvim')
+	call dein#add('Shougo/defx.nvim')
+	" call dein#add('Shougo/denite.nvim')
 	" Autocompletion
 	call dein#add('Shougo/deoplete.nvim')
 	call dein#add('Shougo/neosnippet.vim')
 	call dein#add('Shougo/neosnippet-snippets')
-	call dein#add('zchee/deoplete-jedi')
 	" VCS
 	call dein#add('mhinz/vim-signify')
 	" Remote plugins
@@ -90,7 +89,7 @@ call deoplete#custom#option('require_same_filetype', v:false)
 inoremap <expr> <Esc> pumvisible() ? "\<C-e>\<Esc>" : "\<Esc>"
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-y>" : "\<Tab>"
-inoremap <expr> <CR>  pumvisible() ? "\<C-y>\<CR>" : "\<CR>"
+inoremap <expr> <CR>  pumvisible() ? "\<C-y>" : "\<CR>"
 inoremap <expr> <Down> pumvisible() ? "\<C-e>\<Down>" : "\<Down>"
 inoremap <expr> <Up>  pumvisible() ? "\<C-e>\<Up>" : "\<Up>"
 inoremap <expr> <PageDown> pumvisible() ? "\<PageDown>\<C-p>\<C-n>" : "\<PageDown>"
