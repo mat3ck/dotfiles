@@ -7,8 +7,9 @@ cp -fv ./src/zsh/zprofile -T ~/.config/zsh/.zprofile
 
 # xorg
 cp -fv ./src/xorg/xinitrc -T ~/.xinitrc
+cp -fv ./src/xorg/Xresources -T ~/.Xresources
 
-# i3
+# yay
 cp -frv ./src/yay ~/.config
 
 # i3
@@ -16,6 +17,9 @@ cp -frv ./src/i3 ~/.config
 
 # i3blocks
 cp -frv ./src/i3blocks ~/.config
+
+# polybar
+cp -frv ./src/polybar ~/.config
 
 # termite
 cp -frv ./src/termite ~/.config
