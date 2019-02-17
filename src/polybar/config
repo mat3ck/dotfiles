@@ -223,7 +223,7 @@
 	interval = 5.0
 
 	format-connected = <ramp-signal> <label-connected>
-	label-connected = %signal:2%
+	label-connected = %essid%
 
 	format-disconnected = <label-disconnected>
 	label-disconnected = 睊
