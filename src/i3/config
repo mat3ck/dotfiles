@@ -52,8 +52,8 @@ set $ws10 "10"
 # Startup programs
 #
 
-exec feh --bg-fill "$background"
-exec devmon
+exec --no-startup-id feh --bg-fill $background
+exec --no-startup-id devmon
 
 
 #
