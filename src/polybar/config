@@ -124,6 +124,7 @@
 	interval = 1.0
 	date = %a %b %d
 	time = %H:%M
+	date-alt = %a %b %d
 	time-alt = %H:%M:%S
 
 	format =  <label>
