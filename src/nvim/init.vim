@@ -127,13 +127,17 @@ set wildmenu
 set tabstop=4
 set shiftwidth=4
 set autoindent
-set copyindent
-set smartindent
 set noexpandtab
 set list
 set listchars=tab:\ \ ,trail:$,extends:#
 set showmatch
 set smartcase
+
+" C options
+autocmd FileType c set cindent
+
+" C++ options
+autocmd FileType cpp set cindent
 
 " Python options
 autocmd FileType python setlocal tabstop=4
