@@ -9,6 +9,10 @@ export TERMINAL=termite
 export BROWSER=firefox
 # Ruby gems
 PATH="$PATH:$(ruby -e 'print Gem.user_dir')/bin"
+# Vivado
+PATH="$PATH:/opt/Xilinx/Vivado/2018.3/bin"
+# Lattice Diamond
+PATH="$PATH:/usr/local/diamond/3.10_x64/bin/lin64"
 
 # antigen variables
 export ADOTDIR=~/.config/antigen

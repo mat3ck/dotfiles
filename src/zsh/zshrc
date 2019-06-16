@@ -14,9 +14,6 @@ antigen theme agnoster
 
 antigen apply
 
-PATH=$PATH:/opt/Xilinx/Vivado/2018.3/bin/vivado
-export PATH
-
 man() {
 	LESS_TERMCAP_md=$'\e[01;31m' \
 	LESS_TERMCAP_me=$'\e[0m' \
