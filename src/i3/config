@@ -11,7 +11,7 @@ set $mod Mod4
 set $term termite
 # menu
 set $menu rofi -show run
-# backgroun:
+# background
 set $background ~/.config/i3/background.png
 
 # font
