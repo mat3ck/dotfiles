@@ -18,22 +18,22 @@ set $background ~/.config/i3/background.png
 font pango:DejaVu Sans Mono Nerd Font 12.5
 
 # colors
-set $color0 #2e2a33
-set $color8 #504a59
-set $color1 #bf303c
-set $color9 #bf303c
-set $color2 #7bbf30
-set $color10 #7bbf30
-set $color3 #bfbf30
-set $color11 #bfbf30
-set $color4 #3060bf
-set $color12 #3060bf
-set $color5 #a730bf
-set $color13 #a730bf
-set $color6 #bf5f30
-set $color14 #bf5f30
-set $color7 #e5e4ce
-set $color15 #fffff2
+set_from_resource $color0 i3wm.color0 #2e2a33
+set_from_resource $color1 i3wm.color1 #bf303c
+set_from_resource $color2 i3wm.color2 #7bbf30
+set_from_resource $color3 i3wm.color3 #bfbf30
+set_from_resource $color4 i3wm.color4 #3060bf
+set_from_resource $color5 i3wm.color5 #a730bf
+set_from_resource $color6 i3wm.color6 #bf5f30
+set_from_resource $color7 i3wm.color7 #e5e4ce
+set_from_resource $color8 i3wm.color8 #504a59
+set_from_resource $color9 i3wm.color9 #bf303c
+set_from_resource $color10 i3wm.color10 #7bbf30
+set_from_resource $color11 i3wm.color11 #bfbf30
+set_from_resource $color12 i3wm.color12 #3060bf
+set_from_resource $color13 i3wm.color13 #a730bf
+set_from_resource $color14 i3wm.color14 #bf5f30
+set_from_resource $color15 i3wm.color15 #fffff2
 
 # define workspaces
 set $ws1 "1"
@@ -61,6 +61,7 @@ exec --no-startup-id devmon
 #
 
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+
 
 #
 # Window decoration
@@ -199,15 +200,3 @@ mode "resize" {
 	bindsym Escape mode "default"
 	bindsym $mod+r mode "default"
 }
-# There also is the (new) i3-dmenu-desktop which only displays applications
-# shipping a .desktop file. It is a wrapper around dmenu, so you need that
-# installed.
-# bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
-
-
-
-
-
-
-
-

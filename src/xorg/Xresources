@@ -1,32 +1,32 @@
 !background
-background: #2e2a33
+*background: #2e2a33
 !foreground
-foreground: #e5e4ce
-foreground_bold: #e5e4ce
+*foreground: #e5e4ce
+*foreground_bold: #e5e4ce
 !cursor
-cursor: #e5e4ce
-cursor_fg: #2e2a33
+*cursor: #e5e4ce
+*cursor_fg: #2e2a33
 !black
-color0: #2e2a33
-color8: #504a59
+*color0: #2e2a33
+*color8: #504a59
 !red
-color1: #bf303c
-color9: #bf303c
+*color1: #bf303c
+*color9: #bf303c
 !green
-color2: #7bbf30
-color10: #7bbf30
+*color2: #7bbf30
+*color10: #7bbf30
 !yellow
-color3: #bfbf30
-color11: #bfbf30
+*color3: #bfbf30
+*color11: #bfbf30
 !blue
-color4: #3060bf
-color12: #3060bf
+*color4: #3060bf
+*color12: #3060bf
 !purple
-color5: #a730bf
-color13: #a730bf
+*color5: #a730bf
+*color13: #a730bf
 !teal
-color6: #bf5f30
-color14: #bf5f30
+*color6: #bf5f30
+*color14: #bf5f30
 !white
-color7: #e5e4ce
-color15: #fffff2
+*color7: #e5e4ce
+*color15: #fffff2
