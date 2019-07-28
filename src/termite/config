@@ -32,43 +32,39 @@ scroll_on_keystroke = true
 #modify_other_keys = false
 
 [colors]
+cursor = #d8dee9
+cursor_foreground = #2e3440
 
-# Foreground
-foreground = #e5e4ce
-foreground_bold = #fffff2
-# Background
-background = #2e2a33
-# Cursor
-cursor = #e5e4ce
-cursor_foreground = #2e2a33
+foreground = #d8dee9
+foreground_bold = #d8dee9
+background = #2e3440
 
-# Black
-color0 = #2e2a33
-color8 = #504a59
-# Red
-color1 = #bf303c
-color9 = #bf303c
-# Green
-color2 = #7bbf30
-color10 = #7bbf30
-# Yellow
-color3 = #bfbf30
-color11 = #bfbf30
-# Blue
-color4 = #3060bf
-color12 = #3660bf
-# Purple
-color5 = #a730bf
-color13 = #a730bf
-# Teal
-color6 = #bf5f30
-color14 = #bf5f30
-# White
-color7 = #e5e4ce
-color15 = #fffff2
+highlight = #4c566a
 
+color0  = #3b4252
+color1  = #bf616a
+color2  = #a3be8c
+color3  = #ebcb8b
+color4  = #81a1c1
+color5  = #b48ead
+color6  = #88c0d0
+color7  = #e5e9f0
+color8  = #4c566a
+color9  = #bf616a
+color10 = #a3be8c
+color11 = #ebcb8b
+color12 = #81a1c1
+color13 = #b48ead
+color14 = #8fbcbb
+color15 = #eceff4
 
-#highlight = #ff0000
+# 256 color space
+color16 = #F99157
+color17 = #AB7967
+color18 = #343D46
+color19 = #4F5B66
+color20 = #A7ADBA
+color21 = #CDD3DE<Paste>
 
 [hints]
 #font = Monospace 12

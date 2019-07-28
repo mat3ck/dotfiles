@@ -1,32 +1,47 @@
-!background
-*background: #2e2a33
-!foreground
-*foreground: #e5e4ce
-*foreground_bold: #e5e4ce
-!cursor
-*cursor: #e5e4ce
-*cursor_fg: #2e2a33
-!black
-*color0: #2e2a33
-*color8: #504a59
-!red
-*color1: #bf303c
-*color9: #bf303c
-!green
-*color2: #7bbf30
-*color10: #7bbf30
-!yellow
-*color3: #bfbf30
-*color11: #bfbf30
-!blue
-*color4: #3060bf
-*color12: #3060bf
-!purple
-*color5: #a730bf
-*color13: #a730bf
-!teal
-*color6: #bf5f30
-*color14: #bf5f30
-!white
-*color7: #e5e4ce
-*color15: #fffff2
+! Copyright (c) 2016-present Arctic Ice Studio <development@arcticicestudio.com>
+! Copyright (c) 2016-present Sven Greb <code@svengreb.de>
+
+! Project:    Nord XResources
+! Version:    0.1.0
+! Repository: https://github.com/arcticicestudio/nord-xresources
+! License:    MIT
+
+! Modified by mat3ck
+
+#define nord0 #2e3440
+#define nord1 #3b4252
+#define nord2 #434c5e
+#define nord3 #4c566a
+#define nord4 #d8dee9
+#define nord5 #e5e9f0
+#define nord6 #eceff4
+#define nord7 #8fbcbb
+#define nord8 #88c0d0
+#define nord9 #81a1c1
+#define nord10 #5e81ac
+#define nord11 #bf616a
+#define nord12 #d08770
+#define nord13 #ebcb8b
+#define nord14 #a3be8c
+#define nord15 #b48ead
+
+*foreground:   nord4
+*background:   nord0
+*cursorcolor:  nord4
+
+*color0: nord1
+*color1: nord11
+*color2: nord14
+*color3: nord13
+*color4: nord9
+*color5: nord15
+*color6: nord8
+*color7: nord5
+*color8: nord3
+*color9: nord11
+*color10: nord14
+*color11: nord13
+*color12: nord9
+*color13: nord15
+*color14: nord7
+*color15: nord6

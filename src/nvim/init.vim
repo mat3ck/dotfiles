@@ -30,43 +30,12 @@ if dein#load_state('~/.cache/dein')
 endif
 
 " Colorscheme
-colorscheme base16-default-dark
-function! s:base16_customize() abort
-	" General
-	call Base16hi("LineNr", "", "", g:base16_cterm03, g:base16_cterm00, "bold", "")
-	call Base16hi("SignColumn", "", "", g:base16_cterm03, g:base16_cterm00, "bold", "")
-	call Base16hi("ColorColumn", "", "", "", g:base16_cterm03, "", "")
-	call Base16hi("VertSplit", "", "", g:base16_cterm03, g:base16_cterm00, "", "")
-	call Base16hi("Error", "", "", g:base16_cterm00, g:base16_cterm09, "", "")
-	call Base16hi("ErrorMsg", "", "", g:base16_cterm00, g:base16_cterm09, "", "")
-	call Base16hi("StatusLine", "", "", g:base16_cterm0B, g:base16_cterm03, "bold", "")
-	call Base16hi("WildMenu", "", "", g:base16_cterm03, g:base16_cterm0B, "bold", "")
-	call Base16hi("Search", "", "", g:base16_cterm00, g:base16_cterm0A, "", "")
-	call Base16hi("IncSearch", "", "", g:base16_cterm00, g:base16_cterm0A, "", "")
-	call Base16hi("Substitute", "", "", g:base16_cterm00, g:base16_cterm0F, "", "")
-	call Base16hi("Todo", "", "", g:base16_cterm03, g:base16_cterm0F, "bold", "")
-	" Signify
-	call Base16hi("SignifySignAdd", "", "", g:base16_cterm0B, g:base16_cterm00, "bold", "")
-	call Base16hi("SignifySignDelete", "", "", g:base16_cterm09, g:base16_cterm00, "bold", "")
-	call Base16hi("SignifySignChange", "", "", g:base16_cterm0D, g:base16_cterm00, "bold", "")
-	"Deoplete
-	call Base16hi("Pmenu", "", "", g:base16_cterm01, g:base16_cterm03, "", "")
-	call Base16hi("PmenuSel", "", "", g:base16_cterm03, g:base16_cterm01, "", "")
-	call Base16hi("PmenuSbar", "", "", g:base16_cterm01, g:base16_cterm03, "", "")
-	call Base16hi("PmenuThumb", "", "", g:base16_cterm03, g:base16_cterm01, "", "")
-	" Nerdtree
-	call Base16hi("Directory", "", "", g:base16_cterm0D, "", "bold", "")
-	call Base16hi("TabLineSel", "", "", g:base16_cterm0E, g:base16_cterm09, "bold", "")
-	call Base16hi("NERDTreeDirSlash", "", "", g:base16_cterm0D, "", "bold", "")
-	call Base16hi("NERDTreeExecFile", "", "", g:base16_cterm0B, "", "bold", "")
-endfunction
-augroup on_change_colorschema
-	autocmd!
-	autocmd ColorScheme * call s:base16_customize()
-augroup END
+set termguicolors
+let base16colorspace=256
+colorscheme base16-nord
 
 " Airline
-let g:airline_theme = 'base16color'
+let g:airline_theme = 'base16_nord'
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#fnamemod = ':t'

@@ -2,7 +2,6 @@
 	transparent = #00000000
 	background = ${xrdb:background:#ffff00}
 	foreground = ${xrdb:foreground:#ffff00}
-	foreground_bold = ${xrdb:foreground_bold:#ffff00}
 	color0 = ${xrdb:color0:#ffff00}
 	color1 = ${xrdb:color1:#ffff00}
 	color2 = ${xrdb:color2:#ffff00}
@@ -90,7 +89,7 @@
 	ramp-capacity-4 = 
 	ramp-capacity-5 = 
 	ramp-capacity-0-foreground = ${colors.color1}
-	ramp-capacity-1-foreground = ${colors.color6}
+	ramp-capacity-1-foreground = ${colors.color1}
 	ramp-capacity-2-foreground = ${colors.color3}
 	ramp-capacity-3-foreground = ${colors.color3}
 	ramp-capacity-4-foreground = ${colors.color2}
@@ -112,11 +111,9 @@
 	ramp-load-0 = 
 	ramp-load-1 = 
 	ramp-load-2 = 
-	ramp-load-3 = 
 	ramp-load-0-foreground = ${colors.color2}
 	ramp-load-1-foreground = ${colors.color3}
-	ramp-load-2-foreground = ${colors.color6}
-	ramp-load-3-foreground = ${colors.color1}
+	ramp-load-2-foreground = ${colors.color1}
 
 
 [module/date]
@@ -177,11 +174,9 @@
 	ramp-used-0 = 
 	ramp-used-1 = 
 	ramp-used-2 = 
-	ramp-used-3 = 
 	ramp-used-0-foreground = ${colors.color2}
 	ramp-used-1-foreground = ${colors.color3}
-	ramp-used-2-foreground = ${colors.color6}
-	ramp-used-3-foreground = ${colors.color1}
+	ramp-used-2-foreground = ${colors.color1}
 
 
 [module/volume]
@@ -230,10 +225,8 @@
 	ramp-signal-0 = 直
 	ramp-signal-1 = 直
 	ramp-signal-2 = 直
-	ramp-signal-3 = 直
 	ramp-signal-0-foreground = ${colors.color1}
-	ramp-signal-1-foreground = ${colors.color6}
-	ramp-signal-2-foreground = ${colors.color3}
-	ramp-signal-3-foreground = ${colors.color2}
+	ramp-signal-1-foreground = ${colors.color3}
+	ramp-signal-2-foreground = ${colors.color2}
 
 
