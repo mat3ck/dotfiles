@@ -18,6 +18,8 @@ if dein#load_state('~/.cache/dein')
 	call dein#add('Shougo/deoplete.nvim')
 	call dein#add('Shougo/neosnippet.vim')
 	call dein#add('Shougo/neosnippet-snippets')
+	call dein#add('Shougo/deoplete-clangx')
+	call dein#add('Shougo/neoinclude.vim')
 	" VCS
 	call dein#add('mhinz/vim-signify')
 	" Remote plugins
@@ -48,13 +50,18 @@ let g:signify_realtime = 0
 let g:deoplete#enable_at_startup = 1
 call deoplete#custom#option('smart_case', v:true)
 call deoplete#custom#source('_', 'disabled_syntaxes', ['Comment', 'String'])
-call deoplete#custom#option('sources',	{ '_': ['buffer', 'file','neosnippet'],
+call deoplete#custom#option('sources',	{ '_': ['buffer', 'file','neosnippet', 'clangx'],
 										\ 'python': ['buffer', 'file', 'neosnippet'],
 										\ })
 call deoplete#custom#source('buffer', 'rank', 10)
 call deoplete#custom#source('file', 'rank', 05)
 call deoplete#custom#source('neosnippet', 'rank', 09)
 call deoplete#custom#option('require_same_filetype', v:false)
+
+call deoplete#custom#var('clangx', 'clang_binary', '/usr/local/bin/clang')
+call deoplete#custom#var('clangx', 'default_c_options', '')
+call deoplete#custom#var('clangx', 'default_cpp_options', '')
+
 inoremap <expr> <Esc> pumvisible() ? "\<C-e>\<Esc>" : "\<Esc>"
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-y>" : "\<Tab>"
