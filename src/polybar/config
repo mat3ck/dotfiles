@@ -44,7 +44,7 @@
 
 	modules-left = i3
 	modules-center = cpu ram
-	modules-right = backlight volume wifi battery date
+	modules-right = backlight volumebt volume wifi battery date
 
 	wm-restack = i3
 
@@ -180,14 +180,9 @@
 
 
 [module/volume]
-	type = internal/alsa
-	master-soundcard = default
-	speaker-soundcard = default
-	headphone-soundcard = default
-	master-mixer = Master
-	speaker-mixer = Speaker
-	headphone-mixer = Headphone
-	headphone-id = 13
+	type = internal/pulseaudio
+	sink = alsa_output.pci-0000_00_1f.3.analog-stereo
+	use-ui-max = true
 
 	interval = 5
 	format-volume = <ramp-volume> <bar-volume>
@@ -195,11 +190,31 @@
 	format-muted-foreground = ${colors.color8}
 	label-muted = ﱝ
 
-	ramp-volume-0 = 奄
-	ramp-volume-1 = 奔
-	ramp-volume-2 = 墳
-	ramp-headphones-0 = 
-	ramp-headphones-1 = 
+	ramp-volume-0 = 奔
+	ramp-volume-1 = 墳
+
+	bar-volume-width = 8
+	bar-volume-indicator = |
+	bar-volume-indicator-foreground = ${colors.foreground}
+	bar-volume-fill = ─
+	bar-volume-fill-foreground = ${colors.foreground}
+	bar-volume-empty = ─
+	bar-volume-empty-foreground = ${colors.color8}
+
+
+[module/volumebt]
+	type = internal/pulseaudio
+	sink = bluez_sink.00_1D_DF_FF_CC_DF.a2dp_sink
+	use-ui-max = true
+
+	interval = 5
+	format-volume = <ramp-volume> <bar-volume>
+	format-muted = <label-muted> <bar-volume>
+	format-muted-foreground = ${colors.color8}
+	label-muted = 
+
+	ramp-volume-0 = 
+	ramp-volume-1 = 
 
 	bar-volume-width = 8
 	bar-volume-indicator = |
