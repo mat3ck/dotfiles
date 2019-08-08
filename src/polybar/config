@@ -21,7 +21,7 @@
 
 
 [bar/main]
-	monitor = eDP-1
+	monitor =
 	bottom = false
 	fixed-center = true
 	width = 100%
@@ -44,7 +44,7 @@
 
 	modules-left = i3
 	modules-center = cpu ram
-	modules-right = backlight volumebt volume wifi battery date
+	modules-right = backlight volume wifi battery date
 
 	wm-restack = i3
 
@@ -181,7 +181,7 @@
 
 [module/volume]
 	type = internal/pulseaudio
-	sink = alsa_output.pci-0000_00_1f.3.analog-stereo
+	sink =
 	use-ui-max = true
 
 	interval = 5
@@ -192,29 +192,6 @@
 
 	ramp-volume-0 = 奔
 	ramp-volume-1 = 墳
-
-	bar-volume-width = 8
-	bar-volume-indicator = |
-	bar-volume-indicator-foreground = ${colors.foreground}
-	bar-volume-fill = ─
-	bar-volume-fill-foreground = ${colors.foreground}
-	bar-volume-empty = ─
-	bar-volume-empty-foreground = ${colors.color8}
-
-
-[module/volumebt]
-	type = internal/pulseaudio
-	sink = bluez_sink.00_1D_DF_FF_CC_DF.a2dp_sink
-	use-ui-max = true
-
-	interval = 5
-	format-volume = <ramp-volume> <bar-volume>
-	format-muted = <label-muted> <bar-volume>
-	format-muted-foreground = ${colors.color8}
-	label-muted = 
-
-	ramp-volume-0 = 
-	ramp-volume-1 = 
 
 	bar-volume-width = 8
 	bar-volume-indicator = |
