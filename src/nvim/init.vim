@@ -55,7 +55,8 @@ call deoplete#custom#option('sources',	{ '_': ['buffer', 'file','neosnippet', 'c
 										\ })
 call deoplete#custom#source('buffer', 'rank', 10)
 call deoplete#custom#source('file', 'rank', 05)
-call deoplete#custom#source('neosnippet', 'rank', 09)
+call deoplete#custom#source('neosnippet', 'rank', 07)
+call deoplete#custom#source('clangx', 'rank', 09)
 call deoplete#custom#option('require_same_filetype', v:false)
 
 call deoplete#custom#var('clangx', 'clang_binary', '/usr/local/bin/clang')
