@@ -51,6 +51,7 @@
 
 [module/backlight]
 	type = internal/xbacklight
+	output = ${env:MONITOR:eDP-1}
 
 	format = <ramp> <bar>
 
