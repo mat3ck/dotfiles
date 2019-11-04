@@ -20,6 +20,7 @@ if dein#load_state('~/.cache/dein')
 	call dein#add('Shougo/neosnippet-snippets')
 	call dein#add('Shougo/deoplete-clangx')
 	call dein#add('Shougo/neoinclude.vim')
+	call dein#add('dense-analysis/ale')
 	" VCS
 	call dein#add('mhinz/vim-signify')
 	" Remote plugins
@@ -49,6 +50,7 @@ let g:signify_realtime = 0
 " Deoplete
 let g:deoplete#enable_at_startup = 1
 call deoplete#custom#option('smart_case', v:true)
+call deoplete#custom#option('auto_complete_start_length ', 1)
 call deoplete#custom#source('_', 'disabled_syntaxes', ['Comment', 'String'])
 call deoplete#custom#option('sources',	{ '_': ['buffer', 'file','neosnippet', 'clangx'],
 										\ 'python': ['buffer', 'file', 'neosnippet'],
@@ -65,17 +67,24 @@ call deoplete#custom#var('clangx', 'default_cpp_options', '')
 
 inoremap <expr> <Esc> pumvisible() ? "\<C-e>\<Esc>" : "\<Esc>"
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-y>" : "\<Tab>"
-inoremap <expr> <CR>  pumvisible() ? "\<C-y>" : "\<CR>"
+imap <expr> <S-Tab> pumvisible() ?
+	\ "\<C-p>" :
+	\ neosnippet#jumpable() ? "\<Plug>(neosnippet_jump)" : "\<S-Tab>"
+imap <expr> <CR>  pumvisible() ?
+	\ neosnippet#expandable() ? "\<Plug>(neosnippet_expand)" : "\<C-y>" :
+	\ "\<CR>"
+smap <expr><CR> neosnippet#expandable() ?
+	\ "\<Plug>(neosnippet_expand)" : "\<CR>"
 inoremap <expr> <Down> pumvisible() ? "\<C-e>\<Down>" : "\<Down>"
 inoremap <expr> <Up>  pumvisible() ? "\<C-e>\<Up>" : "\<Up>"
 inoremap <expr> <PageDown> pumvisible() ? "\<PageDown>\<C-p>\<C-n>" : "\<PageDown>"
 inoremap <expr> <PageUp>   pumvisible() ? "\<PageUp>\<C-p>\<C-n>" : "\<PageUp>"
+autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
 
 " Neosnippet
-imap <expr> <S-Tab> neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<S-Tab>"
-smap <expr> <S-Tab> neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<S-Tab>"
-xmap <expr> <S-Tab> neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<S-Tab>"
+"imap <expr> <S-Tab> neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<S-Tab>"
+"smap <expr> <S-Tab> neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<S-Tab>"
+"xmap <expr> <S-Tab> neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<S-Tab>"
 
 " Autoclose
 let g:AutoClosePreserveDotReg = 0
