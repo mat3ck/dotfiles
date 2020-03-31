@@ -1,16 +1,21 @@
 ### Just a little script to sync this folder with system dotfiles
 
 # zsh
+mkdir -p ~/.config/zsh
 cp -fv ./src/zsh/zshenv -T ~/.zshenv
 cp -fv ./src/zsh/zshrc -T ~/.config/zsh/.zshrc
 cp -fv ./src/zsh/zprofile -T ~/.config/zsh/.zprofile
 
 # xorg
+mkdir -p ~/.config/xorg
 cp -fv ./src/xorg/xinitrc -T ~/.xinitrc
-cp -fv ./src/xorg/Xresources -T ~/.Xresources
+cp -fv ./src/xorg/Xresources -T ~/.config/xorg/Xresources
 
 # yay
 cp -frv ./src/yay ~/.config
+
+# awesome
+cp -frv ./src/awesome ~/.config
 
 # i3
 cp -frv ./src/i3 ~/.config
