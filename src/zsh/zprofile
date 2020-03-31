@@ -11,8 +11,6 @@ export BROWSER=firefox
 PATH="$PATH:$(ruby -e 'print Gem.user_dir')/bin"
 # Vivado
 PATH="$PATH:/opt/Xilinx/Vivado/2018.3/bin"
-# Lattice Diamond
-PATH="$PATH:/usr/local/diamond/3.10_x64/bin/lin64"
 
 # antigen variables
 export ADOTDIR=~/.config/antigen
@@ -25,7 +23,7 @@ alias diff='diff --color=auto'
 alias grep='grep --color=auto'
 alias ls='ls --color=auto'
 
-# Launching wayland
+# Launching xorg
 if [ -z "$DISPLAY" ] && [ -n "$XDG_VTNR" ] && [ "$XDG_VTNR" -eq 1 ]; then
 	startx
 fi
