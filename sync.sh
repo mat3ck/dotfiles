@@ -2,45 +2,50 @@
 
 # zsh
 mkdir -p ~/.config/zsh
-cp -fv ./src/zsh/zshenv -T ~/.zshenv
-cp -fv ./src/zsh/zshrc -T ~/.config/zsh/.zshrc
-cp -fv ./src/zsh/zprofile -T ~/.config/zsh/.zprofile
+cp -f ./src/zsh/zshenv -T ~/.zshenv
+cp -f ./src/zsh/zshrc -T ~/.config/zsh/.zshrc
+cp -f ./src/zsh/zprofile -T ~/.config/zsh/.zprofile
+cp -f ./src/zsh/p10k.zsh -T ~/.config/zsh/.p10k.zsh
 
 # xorg
 mkdir -p ~/.config/xorg
-cp -fv ./src/xorg/xinitrc -T ~/.xinitrc
-cp -fv ./src/xorg/Xresources -T ~/.config/xorg/Xresources
+mkdir -p /etc/X11/xorg.conf.d
+cp -f ./src/xorg/xinitrc -T ~/.xinitrc
+cp -f ./src/xorg/Xresources -T ~/.config/xorg/Xresources
+sudo cp -f ./src/xorg/40-libinput.conf -T /etc/X11/xorg.conf.d/40-libinput.conf
+sudo cp -f ./src/xorg/20-modesetting.conf -T \
+	/etc/X11/xorg.conf.d/20-modesetting.conf
 
 # yay
-cp -frv ./src/yay ~/.config
+cp -fr ./src/yay ~/.config
 
 # awesome
-cp -frv ./src/awesome ~/.config
+cp -fr ./src/awesome ~/.config
 
 # i3
-cp -frv ./src/i3 ~/.config
+cp -fr ./src/i3 ~/.config
 
 # i3blocks
-cp -frv ./src/i3blocks ~/.config
+cp -fr ./src/i3blocks ~/.config
 
 # polybar
-cp -frv ./src/polybar ~/.config
+cp -fr ./src/polybar ~/.config
 
 # termite
-cp -frv ./src/termite ~/.config
+cp -fr ./src/termite ~/.config
 
 # ranger
-cp -frv ./src/ranger ~/.config
+cp -fr ./src/ranger ~/.config
 
 # rofi
-cp -frv ./src/rofi ~/.config
+cp -fr ./src/rofi ~/.config
 
 # neovim
-cp -frv ./src/nvim ~/.config
+cp -fr ./src/nvim ~/.config
 
 # xdg
-cp -fv ./src/xdg/user-dirs.dirs -T ~/.config/user-dirs.dirs
-cp -fv ./src/xdg/user-dirs.locale -T ~/.config/user-dirs.locale
+cp -f ./src/xdg/user-dirs.dirs -T ~/.config/user-dirs.dirs
+cp -f ./src/xdg/user-dirs.locale -T ~/.config/user-dirs.locale
 
 # git
-cp -fv ./src/git/gitconfig -T ~/.gitconfig	
+cp -f ./src/git/gitconfig -T ~/.gitconfig	
