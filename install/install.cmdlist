@@ -1,2 +1,6 @@
 systemctl enable netctl-auto@wlp0s20f3.service
 systemctl enable fstrim.timer
+
+git clone https://github.com/zdharma/zinit.git ~/clones/zinit
+curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
