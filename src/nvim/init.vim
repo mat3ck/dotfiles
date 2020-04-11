@@ -13,30 +13,68 @@ call plug#begin('~/.local/share/nvim/plugged')
 
 	" Style
 	Plug 'itchyny/lightline.vim'
+    Plug 'mengelbrecht/lightline-bufferline'
 
 call plug#end()
+
 
 " CoC
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<C-h>"
 
+
 " Lightline
+let g:lightline = {}
+let g:lightline.active = {
+            \ 'left': [ [ 'mode', 'paste' ],
+            \           [ 'readonly', 'filename', 'modified' ],
+            \           [ 'signify' ] ],
+            \ 'right': [ [ 'lineinfo' ],
+            \            [ 'percent' ],
+            \            [ 'fileformat', 'fileencoding', 'filetype' ] ]
+            \ }
+let g:lightline.inactive = {
+            \ 'left': [ [ 'filename' ] ],
+            \ 'right': [ [ 'lineinfo' ],
+            \            [ 'percent' ] ]
+            \ }
+let g:lightline.tabline = {
+            \   'left': [ [ 'buffers' ] ],
+            \   'right': [ ]
+            \ }
+let g:lightline.component_function = {
+            \ 'signify': 'SignifyStatusLine'
+            \ }
+let g:lightline.component_expand = {
+            \ 'buffers': 'lightline#bufferline#buffers'
+            \ }
+let g:lightline.component_type = {
+            \ 'buffers': 'tabsel'
+            \ }
+let g:lightline#bufferline#show_number = 1
+let g:lightline#bufferline#unnamed = '[No Name]'
+
+function! SignifyStatusLine()
+    return sy#repo#get_stats_decorated()
+endfunction
+
 
 " Signify
 
-" Commands
+
+" Commands and Mappings
 command W w
 command Q q
-
-" Mappings
 nnoremap ; :
 map <silent> // :nohlsearch <CR>
 map <silent> gb :bnext! <CR>
 map <silent> gB :bprev! <CR>
 map <silent> {i}gB :buffer {i}! <CR>
 
+
 " Refresh
 set updatetime=200
+
 
 " Info ui
 set number
@@ -49,6 +87,7 @@ set listchars=tab:\ \ ,trail:$,extends:#
 set showmatch
 set scrolloff=4
 
+
 " Indent and textwidth
 set autoindent
 set tabstop=4
@@ -58,9 +97,14 @@ filetype plugin indent on
 set textwidth=80
 set colorcolumn=+1
 
+
 " Searching
 set ignorecase
 set smartcase
+
+
+" Misc
+set hidden
 
 
 "	" Theming
