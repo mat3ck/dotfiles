@@ -15,7 +15,7 @@ set $menu rofi -show run
 set $background ~/.config/i3/background.png
 
 # font
-font pango:DejaVu Sans Mono Nerd Font 12.5
+font pango:DejaVu Sans Mono Nerd Font 12
 
 # colors
 set_from_resource $color0 i3wm.color0 #2e2a33
@@ -70,7 +70,7 @@ exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 # border
 for_window [class="^.*"] border pixel 2
 # gaps
-gaps outer 0
+gaps outer -8
 gaps inner 8
 # colors
 client.background		$color0
