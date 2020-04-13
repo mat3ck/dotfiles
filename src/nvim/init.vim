@@ -12,6 +12,7 @@ call plug#begin('~/.local/share/nvim/plugged')
 	Plug 'mhinz/vim-signify'
 
 	" Style
+	Plug 'chriskempson/base16-vim'
 	Plug 'itchyny/lightline.vim'
     Plug 'mengelbrecht/lightline-bufferline'
 
@@ -23,8 +24,17 @@ inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<C-h>"
 
 
+" Signify
+
+
+" Base16
+let base16colorspace=256
+colorscheme base16-solarized-dark
+
+
 " Lightline
 let g:lightline = {}
+let g:lightline.colorscheme = 'solarized'
 let g:lightline.active = {
             \ 'left': [ [ 'mode', 'paste' ],
             \           [ 'readonly', 'filename', 'modified' ],
@@ -57,9 +67,6 @@ let g:lightline#bufferline#unnamed = '[No Name]'
 function! SignifyStatusLine()
     return sy#repo#get_stats_decorated()
 endfunction
-
-
-" Signify
 
 
 " Commands and Mappings
