@@ -18,6 +18,12 @@
 	color13 = ${xrdb:color13:#ffff00}
 	color14 = ${xrdb:color14:#ffff00}
 	color15 = ${xrdb:color15:#ffff00}
+	color16 = ${xrdb:color16:#ffff00}
+	color17 = ${xrdb:color17:#ffff00}
+	color18 = ${xrdb:color18:#ffff00}
+	color19 = ${xrdb:color19:#ffff00}
+	color20 = ${xrdb:color20:#ffff00}
+	color21 = ${xrdb:color21:#ffff00}
 
 
 [bar/main]
@@ -51,10 +57,11 @@
 
 
 [module/backlight]
-	type = internal/xbacklight
-	output = ${env:MONITOR:eDP-1}
+	type = internal/backlight
+	card = intel_backlight
 
 	format = <ramp> <bar>
+    enable-scroll = true
 
 	ramp-0 = 
 	ramp-1 = 
@@ -91,7 +98,7 @@
 	ramp-capacity-4 = 
 	ramp-capacity-5 = 
 	ramp-capacity-0-foreground = ${colors.color1}
-	ramp-capacity-1-foreground = ${colors.color1}
+	ramp-capacity-1-foreground = ${colors.color16}
 	ramp-capacity-2-foreground = ${colors.color3}
 	ramp-capacity-3-foreground = ${colors.color3}
 	ramp-capacity-4-foreground = ${colors.color2}
@@ -113,9 +120,15 @@
 	ramp-load-0 = 
 	ramp-load-1 = 
 	ramp-load-2 = 
+	ramp-load-3 = 
+	ramp-load-4 = 
+	ramp-load-5 = 
 	ramp-load-0-foreground = ${colors.color2}
-	ramp-load-1-foreground = ${colors.color3}
-	ramp-load-2-foreground = ${colors.color1}
+	ramp-load-1-foreground = ${colors.color2}
+	ramp-load-2-foreground = ${colors.color3}
+	ramp-load-3-foreground = ${colors.color3}
+	ramp-load-4-foreground = ${colors.color16}
+	ramp-load-5-foreground = ${colors.color1}
 
 
 [module/date]
@@ -176,9 +189,15 @@
 	ramp-used-0 = 
 	ramp-used-1 = 
 	ramp-used-2 = 
+	ramp-used-3 = 
+	ramp-used-4 = 
+	ramp-used-5 = 
 	ramp-used-0-foreground = ${colors.color2}
-	ramp-used-1-foreground = ${colors.color3}
-	ramp-used-2-foreground = ${colors.color1}
+	ramp-used-1-foreground = ${colors.color2}
+	ramp-used-2-foreground = ${colors.color3}
+	ramp-used-3-foreground = ${colors.color3}
+	ramp-used-4-foreground = ${colors.color16}
+	ramp-used-5-foreground = ${colors.color1}
 
 
 [module/volume]
@@ -219,8 +238,13 @@
 	ramp-signal-0 = 直
 	ramp-signal-1 = 直
 	ramp-signal-2 = 直
-	ramp-signal-0-foreground = ${colors.color1}
-	ramp-signal-1-foreground = ${colors.color3}
-	ramp-signal-2-foreground = ${colors.color2}
-
+	ramp-signal-3 = 直
+	ramp-signal-4 = 直
+	ramp-signal-5 = 直
+	ramp-signal-0-foreground = ${colors.color2}
+	ramp-signal-1-foreground = ${colors.color2}
+	ramp-signal-2-foreground = ${colors.color3}
+	ramp-signal-3-foreground = ${colors.color3}
+	ramp-signal-4-foreground = ${colors.color16}
+	ramp-signal-5-foreground = ${colors.color1}
 
