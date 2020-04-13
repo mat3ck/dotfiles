@@ -49,3 +49,6 @@ cp -f ./src/xdg/user-dirs.locale -T ~/.config/user-dirs.locale
 
 # git
 cp -f ./src/git/gitconfig -T ~/.gitconfig	
+
+# udev
+sudo cp -fr ./src/udev /etc
