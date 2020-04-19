@@ -53,6 +53,9 @@ cp -fr ./src/termite ~/.config
 # rofi
 cp -fr ./src/rofi ~/.config
 
+# gtk2
+cp -fr ./src/gtk-2.0 ~/.config
+
 # zathura
 cp -fr ./src/zathura ~/.config
 
