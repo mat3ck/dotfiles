@@ -114,6 +114,10 @@ set smartcase
 set hidden
 
 
+" Filetypes
+au BufRead,BufNewFile *.vh set filetype=verilog
+
+
 "	" Theming
 "	call dein#add('chriskempson/base16-vim')
 "	call dein#add('vim-airline/vim-airline')
