@@ -17,7 +17,11 @@ cp -f ./src/zsh/p10k.zsh -T ~/.config/zsh/.p10k.zsh
 cp -fr ./src/ranger ~/.config
 
 # neovim
-cp -fr ./src/nvim ~/.config
+mkdir -p ~/.config/nvim
+cp -fr ./src/nvim/init.vim ~/.config/nvim
+cp -fr ./src/nvim/coc-settings.json ~/.config/nvim
+cp -fr ./src/nvim/svls.toml ~/.svls.toml
+cp -fr ./src/nvim/svlint.toml ~/.svlint.toml
 
 # git
 cp -f ./src/git/gitconfig -T ~/.gitconfig	
