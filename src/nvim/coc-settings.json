@@ -6,6 +6,11 @@
 			"filetypes": ["lua"]
 		},
 
+		"svls": {
+			"command": "svls",
+			"filetypes": ["verilog", "systemverilog"]
+		},
+
 		"vimls": {
 			"command": "vim-language-server",
 			"args": ["--stdio"],
