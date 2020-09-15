@@ -13,13 +13,16 @@ call plug#begin('~/.local/share/nvim/plugged')
 
 	" Style
 	Plug 'chriskempson/base16-vim'
-	Plug 'itchyny/lightline.vim'
-    Plug 'mengelbrecht/lightline-bufferline'
+	" Plug 'itchyny/lightline.vim'
+    " Plug 'mengelbrecht/lightline-bufferline'
+    Plug 'vim-airline/vim-airline'
+    Plug 'vim-airline/vim-airline-themes'
 
 call plug#end()
 
 
 " CoC
+inoremap <expr> <Esc> pumvisible() ? "\<C-e>\<Esc>" : "\<Esc>"
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<C-h>"
 
@@ -29,44 +32,14 @@ inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<C-h>"
 
 " Base16
 let base16colorspace=256
-colorscheme base16-solarized-dark
+colorscheme base16-material
 
 
-" Lightline
-let g:lightline = {}
-let g:lightline.colorscheme = 'solarized'
-let g:lightline.active = {
-            \ 'left': [ [ 'mode', 'paste' ],
-            \           [ 'readonly', 'filename', 'modified' ],
-            \           [ 'signify' ] ],
-            \ 'right': [ [ 'lineinfo' ],
-            \            [ 'percent' ],
-            \            [ 'fileformat', 'fileencoding', 'filetype' ] ]
-            \ }
-let g:lightline.inactive = {
-            \ 'left': [ [ 'filename' ] ],
-            \ 'right': [ [ 'lineinfo' ],
-            \            [ 'percent' ] ]
-            \ }
-let g:lightline.tabline = {
-            \   'left': [ [ 'buffers' ] ],
-            \   'right': [ ]
-            \ }
-let g:lightline.component_function = {
-            \ 'signify': 'SignifyStatusLine'
-            \ }
-let g:lightline.component_expand = {
-            \ 'buffers': 'lightline#bufferline#buffers'
-            \ }
-let g:lightline.component_type = {
-            \ 'buffers': 'tabsel'
-            \ }
-let g:lightline#bufferline#show_number = 1
-let g:lightline#bufferline#unnamed = '[No Name]'
-
-function! SignifyStatusLine()
-    return sy#repo#get_stats_decorated()
-endfunction
+" Vim-Airline
+let g:airline_theme = 'base16_material'
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#fnamemod = ':t'
 
 
 " Commands and Mappings
@@ -116,33 +89,3 @@ set hidden
 
 " Filetypes
 au BufRead,BufNewFile *.vh set filetype=verilog
-
-
-"	" Theming
-"	call dein#add('chriskempson/base16-vim')
-"	call dein#add('vim-airline/vim-airline')
-"	call dein#add('vim-airline/vim-airline-themes')
-"	" Utilities
-"	call dein#add('ryanoasis/vim-devicons')
-"	call dein#add('Townk/vim-autoclose')
-"	" Autocompletion
-"	call dein#add('dense-analysis/ale')
-"	" VCS
-"	call dein#add('mhinz/vim-signify')
-"endif
-"
-"inoremap <expr> <Esc> pumvisible() ? "\<C-e>\<Esc>" : "\<Esc>"
-"inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-"imap <expr> <S-Tab> pumvisible() ?
-"	\ "\<C-p>" :
-"	\ neosnippet#jumpable() ? "\<Plug>(neosnippet_jump)" : "\<S-Tab>"
-"imap <expr> <CR>  pumvisible() ?
-"	\ neosnippet#expandable() ? "\<Plug>(neosnippet_expand)" : "\<C-y>" :
-"	\ "\<CR>"
-"smap <expr><CR> neosnippet#expandable() ?
-"	\ "\<Plug>(neosnippet_expand)" : "\<CR>"
-"inoremap <expr> <Down> pumvisible() ? "\<C-e>\<Down>" : "\<Down>"
-"inoremap <expr> <Up>  pumvisible() ? "\<C-e>\<Up>" : "\<Up>"
-"inoremap <expr> <PageDown> pumvisible() ? "\<PageDown>\<C-p>\<C-n>" : "\<PageDown>"
-"inoremap <expr> <PageUp>   pumvisible() ? "\<PageUp>\<C-p>\<C-n>" : "\<PageUp>"
-"autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif

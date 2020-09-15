@@ -22,6 +22,8 @@ cp -fr ./src/nvim/init.vim ~/.config/nvim
 cp -fr ./src/nvim/coc-settings.json ~/.config/nvim
 cp -fr ./src/nvim/svls.toml ~/.svls.toml
 cp -fr ./src/nvim/svlint.toml ~/.svlint.toml
+cp -f ./src/nvim/base16_material.vim -T \
+    ~/.local/share/nvim/plugged/vim-airline-themes/autoload/airline/themes/base16_material.vim
 
 # git
 cp -f ./src/git/gitconfig -T ~/.gitconfig	

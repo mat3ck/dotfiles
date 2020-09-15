@@ -32,55 +32,55 @@ scroll_on_keystroke = true
 #modify_other_keys = false
 
 [colors]
-# Base16 Solarized Dark
-# Author: Ethan Schoonover (modified by aramisgithub)
 # https://github.com/khamer/base16-termite
+# Base16 Material
+# Author: Nate Peterson
 
-foreground          = #93a1a1
-foreground_bold     = #eee8d5
-cursor              = #eee8d5
-cursor_foreground   = #002b36
-background          = #002b36
+foreground          = #EEFFFF
+foreground_bold     = #EEFFFF
+cursor              = #EEFFFF
+cursor_foreground   = #263238
+background          = #263238
 
 # 16 color space
 
 # Black, Gray, Silver, White
-color0  = #002b36
-color8  = #657b83
-color7  = #93a1a1
-color15 = #fdf6e3
+color0  = #263238
+color8  = #546E7A
+color7  = #EEFFFF
+color15 = #FFFFFF
 
 # Red
-color1  = #dc322f
-color9  = #dc322f
+color1  = #F07178
+color9  = #F07178
 
 # Green
-color2  = #859900
-color10 = #859900
+color2  = #C3E88D
+color10 = #C3E88D
 
 # Yellow
-color3  = #b58900
-color11 = #b58900
+color3  = #FFCB6B
+color11 = #FFCB6B
 
 # Blue
-color4  = #268bd2
-color12 = #268bd2
+color4  = #82AAFF
+color12 = #82AAFF
 
 # Purple
-color5  = #6c71c4
-color13 = #6c71c4
+color5  = #C792EA
+color13 = #C792EA
 
 # Teal
-color6  = #2aa198
-color14 = #2aa198
+color6  = #89DDFF
+color14 = #89DDFF
 
 # Extra colors
-color16 = #cb4b16
-color17 = #d33682
-color18 = #073642
-color19 = #586e75
-color20 = #839496
-color21 = #eee8d5
+color16 = #F78C6C
+color17 = #FF5370
+color18 = #2E3C43
+color19 = #314549
+color20 = #B2CCD6
+color21 = #EEFFFF
 
 [hints]
 #font = Monospace 12

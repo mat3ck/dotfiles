@@ -1,38 +1,37 @@
 set font "DejaVuSansMonoNerdFontMono 12"
 set page-padding 4
 
-# Base16 Solarized Dark
-# Author: Ethan Schoonover (modified by aramisgithub)
-# Fork: https://github.com/nicodebo/base16-zathura
+# Base16 Material
+# Author: Nate Peterson
 
-set default-bg                  "#073642"
-set default-fg                  "#93a1a1"
+set default-bg                  "#263238"
+set default-fg                  "#2E3C43"
 
-set statusbar-fg                "#eee8d5"
-set statusbar-bg                "#586e75"
+set statusbar-fg                "#B2CCD6"
+set statusbar-bg                "#314549"
 
-set inputbar-bg                 "#002b36"
-set inputbar-fg                 "#eee8d5"
+set inputbar-bg                 "#263238"
+set inputbar-fg                 "#FFFFFF"
 
-set notification-bg             "#002b36"
-set notification-fg             "#fdf6e3"
+set notification-bg             "#263238"
+set notification-fg             "#FFFFFF"
 
-set notification-error-bg       "#002b36"
-set notification-error-fg       "#dc322f"
+set notification-error-bg       "#263238"
+set notification-error-fg       "#F07178"
 
-set notification-warning-bg     "#002b36"
-set notification-warning-fg     "#dc322f"
+set notification-warning-bg     "#263238"
+set notification-warning-fg     "#F07178"
 
-set highlight-color             "#b58900"
-set highlight-active-color      "#268bd2"
+set highlight-color             "#FFCB6B"
+set highlight-active-color      "#82AAFF"
 
-set completion-bg               "#073642"
-set completion-fg               "#268bd2"
+set completion-bg               "#2E3C43"
+set completion-fg               "#82AAFF"
 
-set completion-highlight-fg     "#fdf6e3"
-set completion-highlight-bg     "#268bd2"
+set completion-highlight-fg     "#FFFFFF"
+set completion-highlight-bg     "#82AAFF"
 
-set recolor-lightcolor          "#002b36"
-set recolor-darkcolor           "#eee8d5"
+set recolor-lightcolor          "#263238"
+set recolor-darkcolor           "#EEFFFF"
 
 set recolor                     "true"
