@@ -28,6 +28,9 @@ cp -f ./src/nvim/base16_material.vim -T \
 # git
 cp -f ./src/git/gitconfig -T ~/.gitconfig	
 
+# wayland
+cp -fr ./src/environment.d ~/.config
+
 # xorg
 mkdir -p ~/.config/xorg
 mkdir -p /etc/X11/xorg.conf.d
@@ -44,14 +47,23 @@ cp -f ./src/xdg/user-dirs.locale -T ~/.config/user-dirs.locale
 # awesome
 cp -fr ./src/awesome ~/.config
 
+# sway
+cp -fr ./src/sway ~/.config
+
 # i3
 cp -fr ./src/i3 ~/.config
+
+# waybar
+cp -fr ./src/waybar ~/.config
 
 # i3blocks
 cp -fr ./src/i3blocks ~/.config
 
 # polybar
 cp -fr ./src/polybar ~/.config
+
+# alacritty
+cp -fr ./src/alacritty ~/.config
 
 # termite
 cp -fr ./src/termite ~/.config

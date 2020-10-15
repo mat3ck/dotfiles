@@ -1,0 +1,207 @@
+/*
+ * Waybar style
+ */
+
+
+/* General */
+
+* {
+    border: none;
+    border-radius: 0;
+    font-family: DejaVuSansMonoNerdFontMono, sans-mono;
+    font-size: 12pt;
+}
+
+/* Bar */
+
+window#waybar {
+    background-color: transparent;
+    color: transparent;
+}
+
+/* Modules */
+
+#backlight,
+#battery,
+#clock,
+#cpu,
+#disk,
+#idle_inhibitor,
+#memory,
+#mpd,
+#network,
+#pulseaudio,
+#mode,
+#workspaces,
+#temperature,
+#tray {
+    padding: 0 8px;
+    margin: 0 4px;
+    background-color: #eeffff;
+    color: #2e3c43;
+}
+
+#backlight {
+    background-color: #ffcb6b;
+}
+
+@keyframes battery_blink {
+    to {
+        background-color: #eeffff;
+    }
+}
+#battery {
+    background-color: #eeffff;
+}
+#battery.charging {
+    background-color: #82aaff;
+}
+#battery.plugged {
+    background-color: #82aaff;
+}
+#battery.full {
+    background-color: #82aaff;
+}
+#battery.good:not(.charging):not(.full) {
+    background-color: #c3e88d;
+}
+#battery.medium:not(.charging):not(.full) {
+    background-color: #ffcb6b;
+}
+#battery.low:not(.charging):not(.full) {
+    background-color: #f78c6c;
+}
+#battery.critical:not(.charging):not(.full) {
+    background-color: #f07178;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+#clock {
+    background-color: #eeffff;
+    margin-right: 0px;
+}
+
+#cpu {
+    background-color: #eeffff;
+}
+#cpu.low {
+    background-color: #c3e88d;
+}
+#cpu.medium {
+    background-color: #ffcb6b;
+}
+#cpu.high {
+    background-color: #f78c6c;
+}
+#cpu.full {
+    background-color: #f07178;
+}
+
+#disk {
+    background-color: #eeffff;
+}
+#disk.low {
+    background-color: #c3e88d;
+}
+#disk.medium {
+    background-color: #ffcb6b;
+}
+#disk.high {
+    background-color: #f78c6c;
+}
+#disk.full {
+    background-color: #f07178;
+}
+
+#idle_inhibitor {
+    background-color: #eeffff;
+}
+#idle_inhibitor.deactivated {
+    background-color: #2e3c43;
+    color: #eeffff;
+}
+#idle_inhibitor.activated {
+    background-color: #eeffff;
+    color: #2e3c43;
+}
+
+#memory {
+    background-color: #eeffff;
+}
+#memory.low {
+    background-color: #c3e88d;
+}
+#memory.medium {
+    background-color: #ffcb6b;
+}
+#memory.high {
+    background-color: #f78c6c;
+}
+#memory.full {
+    background-color: #f07178;
+}
+
+#mpd {
+    background-color: #eeffff;
+}
+
+#network {
+    background-color: #c3e88d;
+}
+#network.disconnected {
+    background-color: #f07178;
+}
+
+#pulseaudio.sink {
+    background-color: #82aaff;
+    margin-left: 0px;
+}
+#pulseaudio.sink.muted {
+    background-color: #546e7a;
+}
+
+#pulseaudio.source {
+    background-color: #c792ea;
+}
+#pulseaudio.source.source-muted {
+    background-color: #546e7a;
+}
+
+#mode {
+    background-color: #c792ea;
+}
+
+#workspaces {
+    background-color: transparent;
+}
+#workspaces button {
+    padding: 0 4px;
+    background-color: #2e3c43;
+    color: #eeffff;
+}
+#workspaces button.focused {
+    background-color: #eeffff;
+    color: #2e3c43;
+}
+#workspaces button.urgent {
+    background-color: #f07178;
+    color: #2e3c43;
+}
+
+#temperature {
+    background-color: #f78c6c;
+}
+
+#temperature.critical {
+    background-color: #f07178;
+}
+
+#tray {
+    background-color: #ff5370;
+}
+
+

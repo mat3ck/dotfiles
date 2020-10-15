@@ -1,7 +1,3 @@
-" TODO
-" Add buffers to tabline
-" Theming
-
 " Plugins loading
 call plug#begin('~/.local/share/nvim/plugged')
 	

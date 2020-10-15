@@ -7,6 +7,7 @@ export EDITOR=nvim
 export VISUAL=nvim
 export TERMINAL=termite
 export BROWSER=firefox
+export MOZ_ENABLE_WAYLAND=1
 
 # Rust libs
 PATH="${PATH:+${PATH}:}$HOME/.cargo/bin"
@@ -26,7 +27,7 @@ alias diff='diff --color=auto'
 alias grep='grep --color=auto'
 alias ls='ls --color=auto'
 
-# Launching xorg
-if [ -z "$DISPLAY" ] && [ -n "$XDG_VTNR" ] && [ "$XDG_VTNR" -eq 1 ]; then
-	startx
+# Launching sway
+if [ -z "$DISPLAY" ] && [ $(tty) = /dev/tty1 ]; then
+	sway
 fi
