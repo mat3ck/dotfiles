@@ -156,7 +156,7 @@
     "pulseaudio#sink": {
         "tooltip": true,
         "format": "{volume: >3} {icon}",
-        "format-muted": "{volume: >3} ﱝ",
+        "format-muted": "{volume: >3} ",
         "format-bluetooth": "{volume: >3} ",
         "format-bluetooth-muted": "{volume: >3} ",
         "format-icons": {
@@ -204,7 +204,7 @@
         "interval": 30,
         "thermal-zone": 8,
         "critical-threshold": 80,
-        "format": "{temperatureC: >2}°C {icon}",
+        "format": "{temperatureC: >2} {icon}",
         "format-icons": ["", "", "", "", ""]
     },
     "tray": {
