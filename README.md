@@ -16,8 +16,10 @@
 * __Wallpaper__: Custom BASE00 from base16-material with HSV noise
 * __THEME__: [Base16 Material Theme](https://github.com/ntpeters/base16-materialtheme-scheme)
 
+# Preview
+![](https://imgur.com/a/MNwsmPi)
 
-## How-to
+# How-to
 Dotfiles come with a sync script to copy all the files in the proper folder to
 avoid having hidden files in the git repo. To install the dotfiles to your
 system, be careful to have required dependencies and run:
