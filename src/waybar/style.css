@@ -73,7 +73,7 @@ window#waybar {
 }
 #battery.critical:not(.charging):not(.full) {
     background-color: #f07178;
-    animation-name: blink;
+    animation-name: battery_blink;
     animation-duration: 0.5s;
     animation-timing-function: linear;
     animation-iteration-count: infinite;
