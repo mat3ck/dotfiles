@@ -118,7 +118,8 @@ bindsym $mod+Shift+c reload
 # lock sway
 bindsym $mod+Shift+x exec swaylock --grace 0.5 --screenshots --effect-blur 15x3 --fade-in 0.5
 # sreeenshot
-bindsym Print exec grim /tmp/screenshot.png && gimp /tmp/screenshot.png
+bindsym Print exec grim -c - | wl-copy
+bindsym Shift+Print exec grim -c /tmp/screenshot.png
 
 # start terminal
 bindsym $mod+Return exec $term
