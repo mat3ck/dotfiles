@@ -17,7 +17,7 @@
 * __THEME__: [Base16 Material Theme](https://github.com/ntpeters/base16-materialtheme-scheme)
 
 # Preview
-![](https://imgur.com/a/MNwsmPi)
+![](https://i.imgur.com/gKBJ0FS.jpg)
 
 # How-to
 Dotfiles come with a sync script to copy all the files in the proper folder to
