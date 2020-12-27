@@ -34,6 +34,7 @@ colorscheme base16-material
 " Vim-Airline
 let g:airline_theme = 'base16_material'
 let g:airline_powerline_fonts = 1
+let g:airline#extensions#coc#enabled = 0
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#fnamemod = ':t'
 
