@@ -18,6 +18,9 @@ call plug#end()
 
 
 " CoC
+" CocInstall coc-jedi
+" CocInstall coc-clangd
+" CocInstall coc-sh
 inoremap <expr> <Esc> pumvisible() ? "\<C-e>\<Esc>" : "\<Esc>"
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<C-h>"

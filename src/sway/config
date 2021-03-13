@@ -13,6 +13,8 @@ set $term alacritty
 set $menu rofi -theme base16-material -show run
 # background
 set $background ~/.config/sway/background_material.png fill
+# lock_cmd
+set $lock_cmd swaylock --grace 0.5 --screenshots --effect-blur 15x3 --fade-in 0.5
 
 # font
 font pango:DejaVu Sans Mono Nerd Font 12
@@ -116,7 +118,12 @@ bindsym $mod+Shift+e exec swaynag -t warning -m 'Exit Sway?' -b 'Yes' 'swaymsg e
 # reload the configuration file
 bindsym $mod+Shift+c reload
 # lock sway
-bindsym $mod+Shift+x exec swaylock --grace 0.5 --screenshots --effect-blur 15x3 --fade-in 0.5
+bindsym $mod+Shift+x exec $lock_cmd
+# idle config
+exec swayidle -w \
+         timeout 600 '$lock_cmd' \
+         timeout 1200 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
+         before-sleep '$lock_cmd'
 # sreeenshot
 bindsym Print exec grim -c - | wl-copy
 bindsym Shift+Print exec grim -c /tmp/screenshot.png
