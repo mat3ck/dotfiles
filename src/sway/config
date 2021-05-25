@@ -10,11 +10,11 @@ set $mod Mod4
 # terminal
 set $term alacritty
 # menu
-set $menu rofi -theme base16-material -show run
+set $menu wofi --style ~/.config/wofi/base16-material.css --show run
 # background
 set $background ~/.config/sway/background_material.png fill
 # lock_cmd
-set $lock_cmd swaylock --grace 0.5 --screenshots --effect-blur 15x3 --fade-in 0.5
+set $lock_cmd swaylock -f --grace 0.5 --screenshots --effect-blur 15x3 --fade-in 0.5
 
 # font
 font pango:DejaVu Sans Mono Nerd Font 12
@@ -121,8 +121,8 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+x exec $lock_cmd
 # idle config
 exec swayidle -w \
-         timeout 600 '$lock_cmd' \
-         timeout 1200 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
+         timeout 1200 '$lock_cmd' \
+         timeout 2400 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
          before-sleep '$lock_cmd'
 # sreeenshot
 bindsym Print exec grim -c - | wl-copy
