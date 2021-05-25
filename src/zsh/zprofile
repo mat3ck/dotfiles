@@ -22,6 +22,8 @@ export ADOTDIR=~/.config/antigen
 # ranger variables
 export RANGER_LOAD_DEFAULTS_RC=FALSE
 
+export WLR_DRM_NO_MODIFIERS=1
+
 # Aliases
 alias diff='diff --color=auto'
 alias grep='grep --color=auto'

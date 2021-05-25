@@ -18,12 +18,17 @@ call plug#end()
 
 
 " CoC
-" CocInstall coc-jedi
-" CocInstall coc-clangd
 " CocInstall coc-sh
+" CocInstall coc-python
+" CocInstall coc-json
+" CocInstall coc-vimlsp
 inoremap <expr> <Esc> pumvisible() ? "\<C-e>\<Esc>" : "\<Esc>"
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<C-h>"
+inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<cr>"
+if exists('*complete_info')
+    inoremap <silent><expr> <cr> complete_info(['selected'])['selected'] != -1 ? "\<C-y>" : "\<C-g>u\<CR>"
+endif
 
 
 " Signify
