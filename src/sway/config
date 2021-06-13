@@ -14,7 +14,7 @@ set $menu wofi --style ~/.config/wofi/base16-material.css --show run
 # background
 set $background ~/.config/sway/background_material.png fill
 # lock_cmd
-set $lock_cmd swaylock -f --grace 0.5 --screenshots --effect-blur 15x3 --fade-in 0.5
+set $lock_cmd swaylock -f --grace 0.5 --screenshots --effect-blur 15x3 --fade-in 0.5 --indicator
 
 # font
 font pango:DejaVu Sans Mono Nerd Font 12
@@ -66,6 +66,8 @@ input type:touchpad {
     tap enabled
     dwt enabled
     middle_emulation enabled
+    natural_scroll enabled
+    scroll_factor 0.25
 }
 
 #
@@ -122,7 +124,9 @@ bindsym $mod+Shift+x exec $lock_cmd
 # idle config
 exec swayidle -w \
          timeout 1200 '$lock_cmd' \
-         timeout 2400 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
+         timeout 2400 'swaymsg "output * dpms off"' \
+            resume 'swaymsg "output * dpms on"' \
+         before-sleep 'playerctl pause' \
          before-sleep '$lock_cmd'
 # sreeenshot
 bindsym Print exec grim -c - | wl-copy

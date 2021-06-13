@@ -57,7 +57,7 @@
         "timezone": "Europe/Paris",
         "format": "{:%I:%M %p}",
         "format-alt": "{:%a %b %d}",
-        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+        "tooltip-format": "<big>{:%Y %B %d}</big>\n<tt><small>{calendar}</small></tt>"
     },
     "cpu": {
         "interval": 2,
@@ -201,7 +201,7 @@
         "format": "{name}"
     },
     "temperature": {
-        "interval": 30,
+        "interval": 10,
         "thermal-zone": 8,
         "critical-threshold": 80,
         "format": "{temperatureC: >2} {icon}",
