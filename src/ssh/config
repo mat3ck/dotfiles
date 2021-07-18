@@ -1,0 +1,3 @@
+Match host=github.com
+    IdentitiesOnly yes
+    IdentityFile ~/.ssh/id_rsa_github

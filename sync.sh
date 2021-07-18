@@ -83,3 +83,6 @@ cp -fr ./src/gtk-3.0 ~/.config
 # zathura
 cp -fr ./src/zathura ~/.config
 
+# ssh
+cp -f ./src/ssh/config ~/.ssh/config
+
