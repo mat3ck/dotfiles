@@ -18,6 +18,7 @@ cp -fr ./src/ranger ~/.config
 
 # neovim
 mkdir -p ~/.config/nvim
+mkdir -p ~/.local/share/nvim/plugged/vim-airline-themes/autoload/airline/themes
 cp -fr ./src/nvim/init.vim ~/.config/nvim
 cp -fr ./src/nvim/coc-settings.json ~/.config/nvim
 cp -fr ./src/nvim/svls.toml ~/.svls.toml
@@ -33,7 +34,7 @@ cp -fr ./src/environment.d ~/.config
 
 # xorg
 mkdir -p ~/.config/xorg
-mkdir -p /etc/X11/xorg.conf.d
+sudo mkdir -p /etc/X11/xorg.conf.d
 cp -f ./src/xorg/xinitrc -T ~/.xinitrc
 cp -f ./src/xorg/Xresources -T ~/.config/xorg/Xresources
 sudo cp -f ./src/xorg/40-libinput.conf -T /etc/X11/xorg.conf.d/40-libinput.conf

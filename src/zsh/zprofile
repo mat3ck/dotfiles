@@ -5,7 +5,7 @@ export LC_ALL="en_US.UTF-8"
 export DEFAULT_USER=mateck
 export EDITOR=nvim
 export VISUAL=nvim
-export TERMINAL=termite
+export TERMINAL=alacritty
 export BROWSER=firefox
 export MOZ_ENABLE_WAYLAND=1
 
