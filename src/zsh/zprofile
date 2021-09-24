@@ -9,6 +9,8 @@ export TERMINAL=alacritty
 export BROWSER=firefox
 export MOZ_ENABLE_WAYLAND=1
 
+# Python
+export PIP_USER=yes
 # Rust libs
 PATH="${PATH:+${PATH}:}$HOME/.cargo/bin"
 # Ruby gems

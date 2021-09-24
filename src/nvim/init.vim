@@ -30,10 +30,20 @@ call plug#end()
 
 
 " CoC
-" CocInstall coc-sh
-" CocInstall coc-python
-" CocInstall coc-json
-" CocInstall coc-vimlsp
+let g:coc_global_extensions = [
+            \ 'coc-clangd',
+            \ 'coc-css',
+            \ 'coc-html',
+            \ 'coc-html',
+            \ 'coc-jedi',
+            \ 'coc-json',
+            \ 'coc-lists',
+            \ 'coc-rust-analyzer',
+            \ 'coc-sh',
+            \ 'coc-snippets',
+            \ 'coc-vimlsp',
+            \ 'coc-yaml'
+            \]
 inoremap <expr> <Esc> pumvisible() ? "\<C-e>\<Esc>" : "\<Esc>"
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<C-h>"

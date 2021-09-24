@@ -1,6 +1,45 @@
-systemctl enable netctl-auto@wlp0s20f3.service
-systemctl enable fstrim.timer
+# Kernel parameters
+#   GRUB_CMDLINE_LINUX_DEFAULT=
+#       mem_sleep_default=deep
+#       resume=UUID=...
+#       resume_offset=...
+#   GRUB_CMDLINE_LINUX=
+#       cryptdevice=UUID=...:abc
+#       root=/dev/mapper/abc
 
-git clone https://github.com/zdharma/zinit.git ~/clones/zinit
-curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+# mkinitcpio hooks
+#   keyboard
+#   encrypt
+#   resume
+
+# User management
+usermod -a -G video $USER
+#   add wheel group to sudo
+
+# Decrease swapiness
+echo "vm.swappiness=10" > /etc/sysctl.d/99-swappiness.conf
+
+# Firmware
+systemctl enable fwupd.service
+
+# Audio
+systemctl enable --user pipewire-pulse.service
+
+# Network
+timedatectl set-ntp true
+systemctl enable NetworkManager
+systemctl enable bluetooth.service
+sed -i -e 's/.*AutoEnable=false/AutoEnable=true/' /etc/bluetooth/main.conf
+
+# Pacman
+#   add multilib
+rankmirrors /etc/pacman.d/mirrorlist.backup > /etc/pacman.d/mirrorlist
+sed -i -e 's/#Color/Color/' /etc/pacman.conf
+
+# Zinit install
+mkdir -p ~/bin/zinit
+git clone https://github.com/zdharma/zinit.git ~/bin/zinit
+
+# Cargo setup
+rustup toolchain install stable
+
