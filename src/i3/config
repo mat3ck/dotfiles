@@ -8,11 +8,12 @@
 # modkey
 set $mod Mod4
 # terminal
-set $term termite
+set $term alacritty
 # menu
-set $menu rofi -theme base16-solarized-dark -show run
+set $menu rofi -theme base16-material -show run
 # background
-set $background ~/.config/i3/background.png
+set $background ~/.config/i3/background_material.png
+set $lock_cmd i3lock-fancy-rapid 15 3
 
 # font
 font pango:DejaVu Sans Mono Nerd Font 12
@@ -47,13 +48,22 @@ set $ws8 "8"
 set $ws9 "9"
 set $ws10 "10"
 
+#
+# Outputs
+#
+
+exec --no-startup-id feh --bg-fill $background
+exec --no-startup-id devmon
+
+#
+# Inputs
+#
 
 #
 # Startup programs
 #
 
-exec --no-startup-id feh --bg-fill $background
-exec --no-startup-id devmon
+exec --no-startup-id sleep 5 && devmon --unmount-on-exit
 
 
 #
@@ -66,6 +76,10 @@ exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 #
 # Window decoration
 #
+
+#cursor
+#seat seat0 xcursor_theme Breeze 24
+exec_always gsettings set org.gnome.desktop.interface cursor-theme Breeze
 
 # border
 for_window [class="^.*"] border pixel 2
@@ -80,7 +94,7 @@ client.unfocused		$color8 $color8 $color7 $color8 $color8 $color8
 client.urgent			$color7 $color7 $color1 $color8 $color1 $color7
 client.placeholder		$color8 $color8 $color7 $color8 $color8 $color8
 # floating size
-floating_maximum_size 1920 x 1200
+floating_maximum_size 1920 x 1080
 
 
 #
@@ -94,9 +108,10 @@ bindsym $mod+Shift+c reload
 # restart i3 inplace
 bindsym $mod+Shift+r restart
 # lock i3
-bindsym $mod+Shift+x exec i3lock -i $background
+bindsym $mod+Shift+x exec $lock_cmd
 # sreeenshot
-bindsym Print exec scrot -e 'mv $f /tmp/ && gimp /tmp/$f'
+bindsym Print exec scrot -e 'mv $f /tmp/' | xclip
+bindsym Shift+Print exec scrot -e 'mv $f /tmp/ && gimp /tmp/$f'
 
 # start terminal
 bindsym $mod+Return exec $term
@@ -177,6 +192,17 @@ bindsym $mod+Shift+7 move container to workspace $ws7
 bindsym $mod+Shift+8 move container to workspace $ws8
 bindsym $mod+Shift+9 move container to workspace $ws9
 bindsym $mod+Shift+0 move container to workspace $ws10
+
+# move focused workspace to screen
+bindsym $mod+Control+Shift+h move workspace to output left
+bindsym $mod+Control+Shift+j move workspace to output down
+bindsym $mod+Control+Shift+k move workspace to output up
+bindsym $mod+Control+Shift+l move workspace to output right
+# ditto with arrow keys
+bindsym $mod+Control+Shift+Left move workspace to output left
+bindsym $mod+Control+Shift+Dowwn move workspace to output down
+bindsym $mod+Control+Shift+Up move workspace to output up
+bindsym $mod+Control+Shift+Right move workspace to output right
 
 # scratchpad
 bindsym $mod+minus scratchpad show
