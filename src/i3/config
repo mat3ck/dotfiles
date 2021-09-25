@@ -84,7 +84,7 @@ exec_always gsettings set org.gnome.desktop.interface cursor-theme Breeze
 # border
 for_window [class="^.*"] border pixel 2
 # gaps
-gaps outer -8
+gaps outer 0
 gaps inner 8
 # colors
 client.background		$color0

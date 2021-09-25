@@ -25,84 +25,94 @@
 	color20 = ${xrdb:color20:#ffff00}
 	color21 = ${xrdb:color21:#ffff00}
 
+[section/default]
+    format-padding = 1
+    format-foreground = ${colors.background}
+    format-background = ${colors.foreground}
+
+[settings]
+    pseudo-transparency = true
 
 [bar/main]
-	monitor =
-    dpi = 192
+	monitor = ${env:MONITOR:}
+    dpi = 0
 	bottom = false
 	fixed-center = true
 	width = 100%
-	height = 64
-	background = ${colors.background}
-	foreground = ${colors.foreground}
-	radius-top = 8
-	radius-bottom = 8
-	line-size = 32
-	line-color = ${colors.background}
-	border-left-size = 0
-	border-right-size = 0
-	border-top-size = 0
-	border-bottom-size = 16
+	height = 32
+	background = ${colors.transparent}
+	foreground = ${colors.background}
+	#radius-top = 8
+	#radius-bottom = 8
+	#line-size = 10
+	#line-color = #ff0000
+	border-left-size = 8
+	border-right-size = 8
+	border-top-size = 8
+	border-bottom-size = 0
 	border-color = ${colors.transparent}
-	padding = 2
+	padding = 0
 	module-margin = 1
 
-	font-0 = DejaVuSansMonoNerdFontMono:size=12;8
+	font-0 = DejaVuSansMonoNerdFontMono:size=12;4
 
-	modules-left = i3
-	modules-center = cpu ram
-	modules-right = backlight volume wifi battery date
+	modules-left = pulseaudio_sink backlight
+	modules-center = i3
+	modules-right = temperature cpu memory network battery date
 
 	wm-restack = i3
 
 
 [module/backlight]
 	type = internal/backlight
+    inherit = section/default
 	card = intel_backlight
-
-	format = <ramp> <bar>
     enable-scroll = true
 
+	format = <ramp> <label>
+    label = %percentage:3%
 	ramp-0 = 
 	ramp-1 = 
 	ramp-2 = 
 
-	bar-width = 8
-	bar-indicator = |
-	bar-indicator-foreground = ${colors.foreground}
-	bar-fill = ─
-	bar-fill-foreground = ${colors.foreground}
-	bar-empty = ─
-	bar-empty-foreground = ${colors.color8}
-
 
 [module/battery]
 	type = internal/battery
-	full-at = 98
+    inherit = section/default
+	poll-interval = 5
+
+	full-at = 100
 	battery = BAT0
 	adapter = ADP0
-	poll-interval = 5
 
 	format-charging = <animation-charging> <label-charging>
 	format-discharging = <ramp-capacity> <label-discharging>
 	format-full = <ramp-capacity> <label-full>
 
-	label-charging = %percentage:2%
-	label-discharging = %percentage:2%
+	label-charging = %percentage:3%
+	label-discharging = %percentage:3%
 	label-full = %percentage:3%
 
 	ramp-capacity-0 = 
 	ramp-capacity-1 = 
-	ramp-capacity-2 = 
-	ramp-capacity-3 = 
-	ramp-capacity-4 = 
-	ramp-capacity-5 = 
-	ramp-capacity-0-foreground = ${colors.color1}
-	ramp-capacity-1-foreground = ${colors.color16}
-	ramp-capacity-2-foreground = ${colors.color3}
-	ramp-capacity-3-foreground = ${colors.color3}
-	ramp-capacity-4-foreground = ${colors.color2}
-	ramp-capacity-5-foreground = ${colors.color2}
+	ramp-capacity-2 = 
+	ramp-capacity-3 = 
+	ramp-capacity-4 = 
+	ramp-capacity-5 = 
+	ramp-capacity-6 = 
+	ramp-capacity-7 = 
+	ramp-capacity-8 = 
+	ramp-capacity-9 = 
+	ramp-capacity-0-backgound = ${colors.color1}
+	ramp-capacity-1-backgound = ${colors.color16}
+	ramp-capacity-2-backgound = ${colors.color16}
+	ramp-capacity-3-backgound = ${colors.color3}
+	ramp-capacity-4-backgound = ${colors.color3}
+	ramp-capacity-5-backgound = ${colors.color3}
+	ramp-capacity-6-backgound = ${colors.color3}
+	ramp-capacity-7-backgound = ${colors.color2}
+	ramp-capacity-8-backgound = ${colors.color2}
+	ramp-capacity-9-backgound = ${colors.color2}
 
 	animation-charging-0 = 
 	animation-charging-0-foreground = ${colors.color4}
@@ -111,11 +121,11 @@
 
 [module/cpu]
 	type = internal/cpu
-	interval = 0.5
+    inherit = section/default
+	interval = 2
 
 	format = <label> <ramp-load>
 	label = %percentage:2%
-	label-foreground = ${colors.foreground}
 
 	ramp-load-0 = 
 	ramp-load-1 = 
@@ -123,68 +133,79 @@
 	ramp-load-3 = 
 	ramp-load-4 = 
 	ramp-load-5 = 
-	ramp-load-0-foreground = ${colors.color2}
-	ramp-load-1-foreground = ${colors.color2}
-	ramp-load-2-foreground = ${colors.color3}
-	ramp-load-3-foreground = ${colors.color3}
-	ramp-load-4-foreground = ${colors.color16}
-	ramp-load-5-foreground = ${colors.color1}
+	ramp-load-6 = 
+	ramp-load-7 = 
+	ramp-load-8 = 
+	ramp-load-9 = 
+	#format-0-background = ${colors.color2}
+	#format-1-background = ${colors.color2}
+	#format-2-background = ${colors.color2}
+	#format-3-background = ${colors.color3}
+	#format-4-background = ${colors.color3}
+	#format-5-background = ${colors.color3}
+	#format-6-background = ${colors.color16}
+	#format-7-background = ${colors.color16}
+	#format-8-background = ${colors.color1}
+	#format-9-background = ${colors.color1}
 
 
 [module/date]
 	type = internal/date
-	interval = 1.0
-	date = %a %b %d
-	time = %H:%M
-	date-alt = %a %b %d
-	time-alt = %H:%M:%S
+    inherit = section/default
+	interval = 30
 
-	format =  <label>
-	format-background = ${colors.background}
-	format-foreground = ${colors.foreground}
-	label = %date%, %time%
-	label-foreground = ${colors.foreground}
+	format = <label>
+	date = %I:%M %p
+	date-alt = %a %b %d
+	label = %date%
 
 
 [module/i3]
 	type = internal/i3
+    inherit = section/default
 
 	pin-workspaces = true
 	strip-wsnumbers = true
 	index-sort = true
-	enable-click = false
+	enable-click = true
 	enable-scroll = false
 	wrapping-scroll = false
 	reverse-scroll = false
 	fuzzy-match = false
 
+    format-padding = 0
+
 	label-focused = %index%
+	label-focused-padding = 1
 	label-focused-foreground = ${colors.background}
 	label-focused-background = ${colors.foreground}
-	label-focused-underline = ${colors.transparent}
-	label-focused-padding = 1
 
 	label-unfocused = %index%
 	label-unfocused-padding = 1
+	label-unfocused-foreground = ${colors.foreground}
+	label-unfocused-background = ${colors.background}
 
 	label-visible = %index%
-	label-visible-underline = ${colors.transparent}
 	label-visible-padding = 1
+	label-visible-foreground = ${colors.background}
+	label-visible-background = ${colors.foreground}
 
 	label-urgent = %index%
-	label-urgent-foreground = ${colors.background}
-	label-urgent-background = ${colors.color1}
 	label-urgent-padding = 1
+	label-urgent-foreground = ${colors.background}
+	label-urgent-background = ${colors.foreground}
+	label-urgent-underline = ${colors.color1}
 
 	label-separator =
 	label-separator-padding = 0
-	label-separator-foreground = ${colors.foreground}
 
 
-[module/ram]
+[module/memory]
 	type = internal/memory
-	format = <ramp-used> <label>
-	label = %percentage_free:2%
+    inherit = section/default
+
+	format = <label> <ramp-used>
+	label = %percentage_used:2%
 
 	ramp-used-0 = 
 	ramp-used-1 = 
@@ -192,41 +213,23 @@
 	ramp-used-3 = 
 	ramp-used-4 = 
 	ramp-used-5 = 
-	ramp-used-0-foreground = ${colors.color2}
-	ramp-used-1-foreground = ${colors.color2}
-	ramp-used-2-foreground = ${colors.color3}
-	ramp-used-3-foreground = ${colors.color3}
-	ramp-used-4-foreground = ${colors.color16}
-	ramp-used-5-foreground = ${colors.color1}
+	ramp-used-6 = 
+	ramp-used-7 = 
+	ramp-used-8 = 
+	ramp-used-9 = 
+	#ramp-used-0-foreground = ${colors.color2}
+	#ramp-used-1-foreground = ${colors.color2}
+	#ramp-used-2-foreground = ${colors.color3}
+	#ramp-used-3-foreground = ${colors.color3}
+	#ramp-used-4-foreground = ${colors.color16}
+	#ramp-used-5-foreground = ${colors.color1}
 
 
-[module/volume]
-	type = internal/pulseaudio
-	sink =
-	use-ui-max = true
-
-	interval = 5
-	format-volume = <ramp-volume> <bar-volume>
-	format-muted = <label-muted> <bar-volume>
-	format-muted-foreground = ${colors.color8}
-	label-muted = ﱝ
-
-	ramp-volume-0 = 奔
-	ramp-volume-1 = 墳
-
-	bar-volume-width = 8
-	bar-volume-indicator = |
-	bar-volume-indicator-foreground = ${colors.foreground}
-	bar-volume-fill = ─
-	bar-volume-fill-foreground = ${colors.foreground}
-	bar-volume-empty = ─
-	bar-volume-empty-foreground = ${colors.color8}
-
-
-[module/wifi]
+[module/network]
 	type = internal/network
-	interface = wlp0s20f3
-	interval = 5.0
+    inherit = section/default
+	interface = wlan0
+	interval = 5
 
 	format-connected = <ramp-signal> <label-connected>
 	label-connected = %essid%
@@ -247,4 +250,52 @@
 	ramp-signal-3-foreground = ${colors.color3}
 	ramp-signal-4-foreground = ${colors.color16}
 	ramp-signal-5-foreground = ${colors.color1}
+
+
+[module/pulseaudio_sink]
+	type = internal/pulseaudio
+    inherit = section/default
+	sink =
+	use-ui-max = true
+
+	interval = 1
+	format-volume = <label-volume> <ramp-volume>
+    format-volume-foreground = ${colors.background}
+    format-volume-background = ${colors.foreground}
+    format-volume-padding = 1
+	label-volume = %percentage%
+	format-muted = <label-muted>
+    format-muted-foreground = ${colors.background}
+	format-muted-background = ${colors.color8}
+    format-muted-padding = 1
+	label-muted = %percentage% ﱝ
+
+	ramp-volume-0 = 
+	ramp-volume-1 = 
+	ramp-volume-2 = 
+
+    click-right = pavucontrol
+
+
+[module/temperature]
+	type = internal/temperature
+    inherit = section/default
+	format = <label> <ramp>
+	label = %temperature-c:2%
+	interval = 2
+
+    thermal-zone = 3
+    base-temperature = 25
+    warn-temperature = 90
+
+	ramp-0 = 
+	ramp-1 = 
+	ramp-2 = 
+	ramp-3 = 
+	ramp-4 = 
+	#ramp-0-foreground = ${colors.color2}
+	#ramp-1-foreground = ${colors.color2}
+	#ramp-2-foreground = ${colors.color3}
+	#ramp-3-foreground = ${colors.color16}
+	#ramp-4-foreground = ${colors.color1}
 
