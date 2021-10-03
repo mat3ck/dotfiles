@@ -1,3 +1,5 @@
+#!/bin/bash
+
 ### Just a little script to sync this folder with system dotfiles
 
 # udev
@@ -18,16 +20,12 @@ cp -fr ./src/ranger ~/.config
 
 # neovim
 mkdir -p ~/.config/nvim
-mkdir -p ~/.local/share/nvim/plugged/vim-airline-themes/autoload/airline/themes
-cp -fr ./src/nvim/init.vim ~/.config/nvim
-cp -fr ./src/nvim/coc-settings.json ~/.config/nvim
-cp -fr ./src/nvim/svls.toml ~/.svls.toml
-cp -fr ./src/nvim/svlint.toml ~/.svlint.toml
-cp -f ./src/nvim/base16_material.vim -T \
-    ~/.local/share/nvim/plugged/vim-airline-themes/autoload/airline/themes/base16_material.vim
+cp -fr ./src/nvim/init.lua ~/.config/nvim
+#cp -fr ./src/nvim/svls.toml ~/.svls.toml
+#cp -fr ./src/nvim/svlint.toml ~/.svlint.toml
 
 # git
-cp -f ./src/git/gitconfig -T ~/.gitconfig	
+cp -f ./src/git/gitconfig -T ~/.gitconfig
 
 # wayland
 cp -fr ./src/environment.d ~/.config
@@ -39,7 +37,7 @@ cp -f ./src/xorg/xinitrc -T ~/.xinitrc
 cp -f ./src/xorg/Xresources -T ~/.config/xorg/Xresources
 sudo cp -f ./src/xorg/40-libinput.conf -T /etc/X11/xorg.conf.d/40-libinput.conf
 #sudo cp -f ./src/xorg/20-modesetting.conf -T \
-#	/etc/X11/xorg.conf.d/20-modesetting.conf
+#  /etc/X11/xorg.conf.d/20-modesetting.conf
 
 # xdg
 cp -f ./src/xdg/user-dirs.dirs -T ~/.config/user-dirs.dirs
@@ -47,6 +45,10 @@ cp -f ./src/xdg/user-dirs.locale -T ~/.config/user-dirs.locale
 
 # awesome
 cp -fr ./src/awesome ~/.config
+
+# xmonad
+mkdir -p ~/.xmonad
+cp -fr ./src/xmonad/* ~/.xmonad
 
 # sway
 cp -fr ./src/sway ~/.config
