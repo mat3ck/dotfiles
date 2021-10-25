@@ -31,9 +31,13 @@ command Q q
 ]])
 
 -- mappings
+vim.g.mapleader = " "
+
 local map = vim.api.nvim_set_keymap
 map ('', '//', ':nohlsearch<CR>', {silent = true})
 map ('n', ';', ':', {noremap = true})
+map ('n', '<leader>b', ':bnext<CR>', {silent = false, noremap = true})
+map ('n', '<leader>B', ':bprev<CR>', {silent = false, noremap = true})
 
 -- buffers
 vim.opt.undofile = true
@@ -143,6 +147,9 @@ packer.startup(function(use)
                 options = {
                     show_close_icon = false,
                     show_buffer_close_icons = false,
+                    numbers = function (opts)
+                        return opts.raise(opts.id)
+                    end
                 }
             }
         end
@@ -340,7 +347,7 @@ packer.startup(function(use)
     -- https://github.com/L3MON4D3/LuaSnip
     use {
         'L3MON4D3/LuaSnip',
-        event = 'VimEnter'
+        event = 'VimEnter',
     }
     -- https://github.com/ray-x/lsp_signature.nvim
     use {

@@ -7,7 +7,6 @@ export EDITOR=nvim
 export VISUAL=nvim
 export TERMINAL=alacritty
 export BROWSER=firefox
-export MOZ_ENABLE_WAYLAND=1
 
 # Python
 export PIP_USER=yes
@@ -24,8 +23,6 @@ export ADOTDIR=~/.config/antigen
 # ranger variables
 export RANGER_LOAD_DEFAULTS_RC=FALSE
 
-export WLR_DRM_NO_MODIFIERS=1
-
 # Aliases
 alias diff='diff --color=auto'
 alias grep='grep --color=auto'
@@ -33,5 +30,5 @@ alias ls='ls --color=auto'
 
 # Launching sway
 if [ -z "$DISPLAY" ] && [ $(tty) = /dev/tty1 ]; then
-	sway
+    startx
 fi
