@@ -184,15 +184,7 @@ packer.startup(function(use)
         after = 'nvim-cmp',
         config = function ()
             local nvim_autopairs = require('nvim-autopairs')
-            local nvim_autopairs_cmp = require('nvim-autopairs.completion.cmp')
             nvim_autopairs.setup  {}
-            nvim_autopairs_cmp.setup {
-                map_cr = true,
-                map_complete = true,
-                auto_select = true,
-                insert = false,
-                map_char = { all = '(', tex = '{' }
-            }
         end
     }
 
@@ -200,33 +192,10 @@ packer.startup(function(use)
     -- lsp
     --
 
-    -- https://github.com/williamboman/nvim-lsp-installer
-    use {
-        'williamboman/nvim-lsp-installer',
-        event = 'VimEnter',
-        config = function ()
-            local lsp_installer = require('nvim-lsp-installer')
-            local lsp_installer_servers = require('nvim-lsp-installer.servers')
-            lsp_installer.on_server_ready(function(server)
-                local opts = {}
-                server:setup(opts)
-                vim.cmd [[ do User LspAttachBuffers ]]
-            end)
-            for _, lsp_name in ipairs(lsp_servers) do
-                local ok, lsp = lsp_installer_servers.get_server(lsp_name)
-                if ok then
-                    --print(lsp_name .. ' ok')
-                    if not lsp:is_installed() then
-                        lsp:install()
-                    end
-                end
-            end
-        end
-    }
     -- https://github.com/neovim/nvim-lspconfig
     use {
         'neovim/nvim-lspconfig',
-        after = { 'nvim-lsp-installer', 'cmp-nvim-lsp' },
+        after = { 'cmp-nvim-lsp' },
         config = function ()
             local lspconfig = require('lspconfig')
             local cmp_nvim_lsp = require('cmp_nvim_lsp')
@@ -258,6 +227,29 @@ packer.startup(function(use)
             end
         end
     }
+    -- https://github.com/williamboman/nvim-lsp-installer
+    use {
+        'williamboman/nvim-lsp-installer',
+        after = { 'nvim-lspconfig' },
+        config = function ()
+            local lsp_installer = require('nvim-lsp-installer')
+            local lsp_installer_servers = require('nvim-lsp-installer.servers')
+            lsp_installer.on_server_ready(function(server)
+                local opts = {}
+                server:setup(opts)
+                vim.cmd [[ do User LspAttachBuffers ]]
+            end)
+            for _, lsp_name in ipairs(lsp_servers) do
+                local ok, lsp = lsp_installer_servers.get_server(lsp_name)
+                if ok then
+                    --print(lsp_name .. ' ok')
+                    if not lsp:is_installed() then
+                        lsp:install()
+                    end
+                end
+            end
+        end
+    }
     -- https://github.com/hrsh7th/nvim-cmp
     use {
         'hrsh7th/nvim-cmp',
@@ -267,6 +259,7 @@ packer.startup(function(use)
             local lspkind = require('lspkind')
             local luasnip = require('luasnip')
             cmp.setup({
+                preselect = cmp.PreselectMode.None,
                 snippet = {
                     expand = function(args)
                         luasnip.lsp_expand(args.body)
@@ -291,19 +284,19 @@ packer.startup(function(use)
                     ['<C-e>'] = cmp.mapping.close(),
                     ['<CR>'] = cmp.mapping.confirm({ select = false }),
                     ['<Tab>'] = function(fallback)
-                        if vim.fn.pumvisible() == 1 then
-                            vim.fn.feedkeys(vim.api.nvim_replace_termcodes('<C-n>', true, true, true), 'n')
+                        if cmp.visible() then
+                            cmp.select_next_item()
                         elseif luasnip.expand_or_jumpable() then
-                            vim.fn.feedkeys(vim.api.nvim_replace_termcodes('<Plug>luasnip-expand-or-jump', true, true, true), '')
+                            luasnip.expand_or_jump()
                         else
                             fallback()
                         end
                     end,
                     ['<S-Tab>'] = function(fallback)
-                        if vim.fn.pumvisible() == 1 then
-                            vim.fn.feedkeys(vim.api.nvim_replace_termcodes('<C-p>', true, true, true), 'n')
+                        if cmp.visible() then
+                            cmp.select_prev_item()
                         elseif luasnip.jumpable(-1) then
-                            vim.fn.feedkeys(vim.api.nvim_replace_termcodes('<Plug>luasnip-jump-prev', true, true, true), '')
+                            luasnip.jump(-1)
                         else
                             fallback()
                         end
