@@ -5,7 +5,7 @@
 
 lsp_servers = {
     'bashls',
-    --'clandg',
+    'ccls',
     'cssls',
     'hls',
     'html',
@@ -59,7 +59,9 @@ vim.opt.wrap = false
 vim.opt.smartindent = true
 vim.opt.expandtab = true
 vim.opt.shiftwidth = 4
+vim.opt.tabstop = 4
 vim.opt.softtabstop = -1
+vim.opt.formatoptions = vim.opt.formatoptions:remove { 't', 'c' }
 
 
 --
@@ -197,13 +199,10 @@ packer.startup(function(use)
         'neovim/nvim-lspconfig',
         after = { 'cmp-nvim-lsp' },
         config = function ()
-            local lspconfig = require('lspconfig')
-            local cmp_nvim_lsp = require('cmp_nvim_lsp')
-
-            local signs = { Error = '', Warning = '', Hint = '', Information = '' }
+            local signs = { Error = '', Warn = '', Hint = '', Info = '' }
             for type, icon in pairs(signs) do
-                local hl = 'LspDiagnosticsSign' .. type
-                vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = '' })
+                local hl = 'DiagnosticSign' .. type
+                vim.fn.sign_define(hl, { text = icon, texthl = hl, linehl = '', numhl = '' })
             end
             vim.lsp.handlers['textDocument/publishDiagnostics'] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
                 virtual_text = false,
@@ -217,14 +216,8 @@ packer.startup(function(use)
             vim.lsp.handlers['textDocument/signatureHelp'] = vim.lsp.with(vim.lsp.handlers.signature_help, {
                 border = 'single',
             })
-            vim.cmd [[autocmd CursorHold,CursorHoldI * lua vim.lsp.diagnostic.show_line_diagnostics({focusable=false})]]
+            vim.cmd [[autocmd CursorHold,CursorHoldI * lua vim.diagnostic.open_float({focusable=false})]]
 
-            local capabilities = cmp_nvim_lsp.update_capabilities(vim.lsp.protocol.make_client_capabilities())
-            for _, lsp_name in ipairs(lsp_servers) do
-                lspconfig[lsp_name].setup {
-                    capabilities = capabilities,
-                }
-            end
         end
     }
     -- https://github.com/williamboman/nvim-lsp-installer
@@ -234,15 +227,31 @@ packer.startup(function(use)
         config = function ()
             local lsp_installer = require('nvim-lsp-installer')
             local lsp_installer_servers = require('nvim-lsp-installer.servers')
+            local cmp_nvim_lsp = require('cmp_nvim_lsp')
+            local capabilities = cmp_nvim_lsp.update_capabilities(vim.lsp.protocol.make_client_capabilities())
             lsp_installer.on_server_ready(function(server)
-                local opts = {}
+                local opts = {
+                    on_attach = attach,
+                    capabilities = capabilities,
+                }
+                if server.name == 'sumneko_lua' then
+                    opts.settings = {
+                        Lua = {
+                            diagnostics = {
+                                globals = { 'vim' },
+                            },
+                            telemetry = {
+                                enable = false,
+                            },
+                        }
+                    }
+                end
                 server:setup(opts)
                 vim.cmd [[ do User LspAttachBuffers ]]
             end)
             for _, lsp_name in ipairs(lsp_servers) do
                 local ok, lsp = lsp_installer_servers.get_server(lsp_name)
                 if ok then
-                    --print(lsp_name .. ' ok')
                     if not lsp:is_installed() then
                         lsp:install()
                     end
