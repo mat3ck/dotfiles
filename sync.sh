@@ -5,6 +5,10 @@
 # udev
 sudo cp -fr ./src/udev /etc
 
+# systemd
+mkdir -p ~/.config/systemd/user
+cp -fr ./src/systemd/* ~/.config/systemd/user
+
 # yay
 cp -fr ./src/yay ~/.config
 
