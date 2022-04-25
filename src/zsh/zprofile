@@ -1,4 +1,4 @@
-### zprofile
+#!/bin/zsh
 
 # global environment variables
 export LC_ALL="en_US.UTF-8"
@@ -8,27 +8,28 @@ export VISUAL=nvim
 export TERMINAL=alacritty
 export BROWSER=firefox
 
-# Python
+# python
 export PIP_USER=yes
-# Rust libs
+# rust cargo
 PATH="${PATH:+${PATH}:}$HOME/.cargo/bin"
-# Ruby gems
+# ruby gems
 PATH="${PATH:+${PATH}:}$(ruby -e 'print Gem.user_dir')/bin"
-# Vivado
+# vivado
 PATH="${PATH:+${PATH}:}/opt/Xilinx/Vivado/2018.3/bin"
+# zephyr
+ZEPHYR_ENV_SH=$HOME/bin/zephyr/zephyr/zephyr-env.sh
+if [ -f "$ZEPHYR_ENV_SH" ]; then
+    source $ZEPHYR_ENV_SH
+fi
 
 # antigen variables
-export ADOTDIR=~/.config/antigen
+export ADOTDIR=$HOME/.config/antigen
 
 # ranger variables
 export RANGER_LOAD_DEFAULTS_RC=FALSE
 
-# Aliases
-alias diff='diff --color=auto'
-alias grep='grep --color=auto'
-alias ls='ls --color=auto'
-
-# Launching sway
+# launch sway
 if [ -z "$DISPLAY" ] && [ $(tty) = /dev/tty1 ]; then
     startx
 fi
+

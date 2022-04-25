@@ -43,3 +43,17 @@ git clone https://github.com/zdharma/zinit.git ~/bin/zinit
 # Cargo setup
 rustup toolchain install stable
 
+# Zephyr
+mkdir -p ~/bin/zephyr
+cd ~/bin/zephyr
+west init
+west update
+west zephyr-export
+pip install --user -r ~/zephyrproject/zephyr/scripts/requirements.txt
+cd ~/bin
+wget -P /tmp https://github.com/zephyrproject-rtos/sdk-ng/releases/download/v0.14.1/zephyr-sdk-0.14.1_linux-x86_64.tar.gz
+wget -O - https://github.com/zephyrproject-rtos/sdk-ng/releases/download/v0.14.1/sha256.sum | shasum --check --ignore-missing
+tar xvf /tmp/zephyr-sdk-0.14.1_linux-x86_64.tar.gz
+cd ~/bin/zephyr-sdk-0.14.1
+./setup.sh
+

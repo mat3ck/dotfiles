@@ -1,4 +1,4 @@
-### zshrc
+#!/bin/zsh
 
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.config/zsh/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
@@ -17,6 +17,11 @@ zinit light romkatv/powerlevel10k
 zinit light zsh-users/zsh-syntax-highlighting
 zinit light zsh-users/zsh-autosuggestions
 
+# aliases
+alias diff='diff --color=auto'
+alias grep='grep --color=auto'
+alias ls='ls --color=auto'
+alias ll='ls -l'
 
 man() {
 	LESS_TERMCAP_md=$'\e[01;31m' \
