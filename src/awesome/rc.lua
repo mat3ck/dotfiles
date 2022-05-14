@@ -22,7 +22,7 @@ require("awful.hotkeys_popup.keys")
 if awesome.startup_errors then
     naughty.notify({
         preset = naughty.config.presets.critical,
-        title = "Oops, there were errors during startup!",
+        title = "errors during startup!",
         text = awesome.startup_errors })
 end
 
@@ -34,7 +34,7 @@ do
         in_error = true
         naughty.notify({
             preset = naughty.config.presets.critical,
-            title = "Oops, an error happened!",
+            title = "error happened!",
             text = tostring(err) })
         in_error = false
     end)
@@ -80,7 +80,7 @@ awful.layout.layouts = {
 -- wibar
 --
 
-local wtextclock = wibox.widget.textclock('%y/%m/%d %R')
+local wtextclock = wibox.widget.textclock("%y/%m/%d %R")
 
 local wprompt = function (s)
     local w = awful.widget.prompt()
@@ -185,7 +185,7 @@ local function set_wallpaper(s)
     end
 end
 
--- ee-set wallpaper when a screen geometry changes
+-- re-set wallpaper when a screen geometry changes
 screen.connect_signal("property::geometry", set_wallpaper)
 
 awful.screen.connect_for_each_screen(function(s)
@@ -307,10 +307,10 @@ globalkeys = gears.table.join(
     -- navigation
     awful.key({ modk }, "j",
         function () awful.client.focus.byidx(1) end,
-        {description = "focus next by index", group = "navigation"}),
+        {description = "focus next client by index", group = "navigation"}),
     awful.key({ modk }, "k",
         function () awful.client.focus.byidx(-1) end,
-        {description = "focus previous by index", group = "navigation"}),
+        {description = "focus previous client by index", group = "navigation"}),
     awful.key({ modk }, "u",
         awful.client.urgent.jumpto,
         {description = "jump to urgent client", group = "navigation"}),
@@ -321,7 +321,7 @@ globalkeys = gears.table.join(
                 client.focus:raise()
             end
         end,
-        {description = "go back", group = "navigation"}),
+        {description = "switch back to previous client", group = "navigation"}),
 
     -- client
     awful.key({ modk, "Shift" }, "j",
@@ -339,7 +339,26 @@ globalkeys = gears.table.join(
                 c:emit_signal("request::activate", "key.unminimize", {raise = true})
             end
         end,
-        {description = "restore minimized", group = "client"})
+        {description = "restore minimized", group = "client"}),
+
+    -- functions
+    awful.key({ }, "Print",
+        function ()
+            awful.util.spawn("scrot -e '" ..
+                "mkdir -p ~/pictures/screenshots/ 2>/dev/null && " ..
+                "xclip -selection clipboard -t image/png -i $f 2>/dev/null &&" ..
+                "mv $f ~/pictures/screenshots/ 2>/dev/null'", false)
+        end,
+        {description = "screenshot", group = "functions"}),
+
+    awful.key({ "Shift" }, "Print",
+        function ()
+            awful.util.spawn("scrot -s -e '" ..
+                "mkdir -p ~/pictures/screenshots/ 2>/dev/null && " ..
+                "xclip -selection clipboard -t image/png -i $f 2>/dev/null &&" ..
+                "mv $f ~/pictures/screenshots/ 2>/dev/null'", false)
+        end,
+        {description = "screenshot selection", group = "functions"})
 )
 
 -- tag specific keys
@@ -485,9 +504,9 @@ awful.rules.rules = {
                 "Event Tester",  -- xev
             },
             role = {
-                "AlarmWindow",  -- thunderbird's calendar
-                "ConfigManager",  -- thunderbird's about:config
-                "pop-up",       -- e.g. Google Chrome's (detached) Developer Tools
+                "AlarmWindow",  -- thunderbird calendar
+                "ConfigManager",  -- thunderbird about:config
+                "pop-up",       -- e.g. Google Chrome (detached) Developer Tools
             }
         },
         properties = {
@@ -525,7 +544,7 @@ awful.rules.rules = {
 
 -- triggered when new client spawns
 client.connect_signal("manage", function (c)
-    -- TODO 'request::manage' on new version
+    -- TODO "request::manage" on new version
 
     -- set new clients in slave stack
     -- if not awesome.startup then awful.client.setslave(c) end
@@ -566,20 +585,20 @@ client.connect_signal("request::titlebars", function(c)
     )
 
     awful.titlebar(c) : setup {
-        { -- Left
+        { -- left
             awful.titlebar.widget.iconwidget(c),
             buttons = buttons,
             layout = wibox.layout.fixed.horizontal
         },
-        { -- Middle
-            { -- Title
+        { -- middle
+            {
                 align = "center",
                 widget = awful.titlebar.widget.titlewidget(c)
             },
             buttons = buttons,
             layout = wibox.layout.flex.horizontal
         },
-        { -- Right
+        { -- might
             awful.titlebar.widget.floatingbutton(c),
             awful.titlebar.widget.maximizedbutton(c),
             awful.titlebar.widget.stickybutton(c),
@@ -590,4 +609,6 @@ client.connect_signal("request::titlebars", function(c)
         layout = wibox.layout.align.horizontal
     }
 end)
+
+awful.spawn.with_shell("~/.config/awesome/autorun.sh")
 

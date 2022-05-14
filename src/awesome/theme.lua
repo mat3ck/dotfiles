@@ -1,6 +1,6 @@
----------------------------
--- Default awesome theme --
----------------------------
+--
+-- awesome theme
+--
 
 local theme_assets = require("beautiful.theme_assets")
 local xresources = require("beautiful.xresources")
@@ -9,25 +9,47 @@ local dpi = xresources.apply_dpi
 local gfs = require("gears.filesystem")
 local themes_path = gfs.get_themes_dir()
 
+
 local theme = {}
+
+
+local base16 = {
+    base00 = "#263238",
+    base01 = "#2e3c43",
+    base02 = "#314549",
+    base03 = "#546e7a",
+    base04 = "#b2ccd6",
+    base05 = "#eeffff",
+    base06 = "#eeffff",
+    base07 = "#ffffff",
+    base08 = "#f07178",
+    base09 = "#f78c6c",
+    base0A = "#ffcb6b",
+    base0B = "#c3e88d",
+    base0C = "#89ddff",
+    base0D = "#82aaff",
+    base0E = "#c792ea",
+    base0F = "#ff5370",
+}
+
 
 theme.font          = "NerdFontDejaVu Sans 12"
 
-theme.bg_normal     = "#222222"
-theme.bg_focus      = "#535d6c"
-theme.bg_urgent     = "#ff0000"
+theme.bg_normal     = base16.base00
+theme.bg_focus      = base16.base05
+theme.bg_urgent     = base16.base08
 theme.bg_minimize   = "#444444"
 theme.bg_systray    = theme.bg_normal
 
-theme.fg_normal     = "#aaaaaa"
-theme.fg_focus      = "#ffffff"
+theme.fg_normal     = base16.base05
+theme.fg_focus      = base16.base00
 theme.fg_urgent     = "#ffffff"
 theme.fg_minimize   = "#ffffff"
 
-theme.useless_gap   = dpi(0)
+theme.useless_gap   = dpi(2)
 theme.border_width  = dpi(1)
-theme.border_normal = "#000000"
-theme.border_focus  = "#535d6c"
+theme.border_normal = base16.base03
+theme.border_focus  = base16.base04
 theme.border_marked = "#91231c"
 
 -- There are other variable sets
@@ -124,8 +146,7 @@ theme.awesome_icon = theme_assets.awesome_icon(
 
 -- Define the icon theme for application icons. If not set then the icons
 -- from /usr/share/icons and /usr/share/icons/hicolor will be used.
-theme.icon_theme = nil
+theme.icon_theme = "breeze"
 
 return theme
 
--- vim: filetype=lua:expandtab:shiftwidth=4:tabstop=8:softtabstop=4:textwidth=80

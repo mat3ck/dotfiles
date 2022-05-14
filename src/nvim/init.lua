@@ -35,7 +35,6 @@ vim.g.mapleader = " "
 
 local map = vim.api.nvim_set_keymap
 map ('', '//', ':nohlsearch<CR>', {silent = true})
-map ('n', ';', ':', {noremap = true})
 map ('n', '<leader>b', ':bnext<CR>', {silent = false, noremap = true})
 map ('n', '<leader>B', ':bprev<CR>', {silent = false, noremap = true})
 
@@ -142,6 +141,7 @@ packer.startup(function(use)
     -- https://github.com/akinsho/bufferline.nvim
     use {
         'akinsho/bufferline.nvim',
+        ta= "*",
         after = 'nvim-web-devicons',
         config = function ()
             local bufferline = require('bufferline')
@@ -171,7 +171,7 @@ packer.startup(function(use)
         event = 'VimEnter',
         config = function()
             require('lspkind').init({
-                with_text = false,
+                mode = 'symbol',
             })
         end
     }
@@ -275,16 +275,20 @@ packer.startup(function(use)
                     end,
                 },
                 formatting = {
-                    format = function(entry, vim_item)
-                        vim_item.kind = lspkind.presets.default[vim_item.kind]
-                        vim_item.menu = ({
-                            nvim_lsp = '[LSP]',
-                            nvim_lua = '[Lua]',
-                            path = '[PATH]',
-                            buffer = '[BUF]',
-                        })[entry.source.name]
-                        return vim_item
-                    end,
+                    --format = function(entry, vim_item)
+                    --    vim_item.kind = lspkind.presets.default[vim_item.kind]
+                    --    vim_item.menu = ({
+                    --        nvim_lsp = '[LSP]',
+                    --        nvim_lua = '[Lua]',
+                    --        path = '[PATH]',
+                    --        buffer = '[BUF]',
+                    --    })[entry.source.name]
+                    --    return vim_item
+                    --end,
+                    format = lspkind.cmp_format({
+                        mode = 'symbol',
+                        maxwidth = 50,
+                    })
                 },
                 mapping = {
                     ['<C-d>'] = cmp.mapping.scroll_docs(-4),
@@ -383,13 +387,23 @@ packer.startup(function(use)
         config = function ()
             local treesitter_config = require('nvim-treesitter.configs')
             treesitter_config.setup {
-                ensure_installed = 'maintained',
+                ensure_installed = 'all',
                 highlight = {
                     enable = true,
                     disable = {},
                     use_languagetree = true
                 },
             }
+        end
+    }
+    -- https://github.com/salkin-mada/openscad.nvim
+    use {
+        'salkin-mada/openscad.nvim',
+        requires = 'L3MON4D3/LuaSnip',
+        after =  { 'LuaSnip' },
+        config = function ()
+            local openscad = require('openscad')
+            vim.g.openscad_load_snippets = true
         end
     }
 
