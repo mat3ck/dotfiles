@@ -39,6 +39,7 @@ mkdir -p ~/.config/xorg
 sudo mkdir -p /etc/X11/xorg.conf.d
 cp -f ./src/xorg/xinitrc -T ~/.xinitrc
 cp -f ./src/xorg/Xresources -T ~/.config/xorg/Xresources
+sudo cp -f ./src/xorg/10-monitor.conf -T /etc/X11/xorg.conf.d/10-monitor.conf
 sudo cp -f ./src/xorg/40-libinput.conf -T /etc/X11/xorg.conf.d/40-libinput.conf
 #sudo cp -f ./src/xorg/20-modesetting.conf -T \
 #  /etc/X11/xorg.conf.d/20-modesetting.conf

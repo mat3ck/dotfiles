@@ -16,6 +16,19 @@
 usermod -a -G video $USER
 #   add wheel group to sudo
 
+# Enable hibernate to btrfs swapfile
+mkdir -p bin/btrfs_map_physical
+cd bin/btrfs_map_physical
+curl https://raw.githubusercontent.com/osandov/osandov-linux/master/scripts/btrfs_map_physical.c > btrfs_map_physical.c
+gcc -O2 -o btrfs_map_physical btrfs_map_physical.c
+./btrfs_map_physical /swap/swapfile
+getconf PAGESIZE
+findmnt -no UUID -T /swapfile
+vim /etc/default/grub # add resume=UUID=<uuid> resume_offset=<offset/pagesize>
+vim /etc/mkinitcpio.conf # add resume hook after filesystems
+mkinitcpio -P
+grub-mkconfig -o /boot/grub/grub.cfg
+
 # Decrease swapiness
 echo "vm.swappiness=10" > /etc/sysctl.d/99-swappiness.conf
 
@@ -42,6 +55,10 @@ git clone https://github.com/zdharma/zinit.git ~/bin/zinit
 
 # Cargo setup
 rustup toolchain install stable
+rustup default stable
+
+# Screen setup
+nvidia-settings
 
 # Zephyr
 mkdir -p ~/bin/zephyr
