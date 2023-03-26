@@ -28,7 +28,7 @@ export ADOTDIR=$HOME/.config/antigen
 # ranger variables
 export RANGER_LOAD_DEFAULTS_RC=FALSE
 
-# launch sway
+# launch x server
 if [ -z "$DISPLAY" ] && [ $(tty) = /dev/tty1 ]; then
     startx
 fi

@@ -74,3 +74,6 @@ tar xvf /tmp/zephyr-sdk-0.14.1_linux-x86_64.tar.gz
 cd ~/bin/zephyr-sdk-0.14.1
 ./setup.sh
 
+# lutris tricks
+sudo pacman -Rns lib32-amdvlk # gw2
+

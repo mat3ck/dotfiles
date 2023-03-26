@@ -9,6 +9,9 @@ sudo cp -fr ./src/udev /etc
 mkdir -p ~/.config/systemd/user
 cp -fr ./src/systemd/* ~/.config/systemd/user
 
+# paru
+cp -fr ./src/paru ~/.config
+
 # yay
 cp -fr ./src/yay ~/.config
 
@@ -92,5 +95,6 @@ cp -fr ./src/gtk-3.0 ~/.config
 cp -fr ./src/zathura ~/.config
 
 # ssh
+mkdir -p ~/.ssh
 cp -f ./src/ssh/config ~/.ssh/config
 
